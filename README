@@ -1,1 +1,27 @@
-Am i editing a local copy of this right now or is this live??
+E-Commerce shop in PHP and mySQL for a project with DCU 
+Project by Niall, Lenny, Derek and Peter
+
+Some git magic words to help
+
+git clone git@github.com:peteretep/ecom.git
+this will pull down the repo from my account - you should have committer access
+
+git branch <NAME>
+makes a new branch locally called <NAME> on your machine for you to work on
+git checkout <NAME>
+starts using the <NAME> branch - make whatever edits you want
+git add .
+stages all edits you’ve made            //once ive staged and done the steps below do i  have to go back to the start and reclone again
+no, you can continue to work on what you’ve done. you can pull the most recent version from the repo with git pull origin <branch>
+
+
+git commit -m “your comment here”
+commits your changes to the exp branch
+
+git checkout master
+goes back to the master branch
+git merge <NAME>
+merges the <NAME> changes with your master branch locally.
+
+git push origin <NAME>
+pushes your experimental branches to the online. You need to be working on the <NAME> branch locally to do this
