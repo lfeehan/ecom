@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2012 at 07:49 PM
+-- Generation Time: Feb 29, 2012 at 06:11 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10-1ubuntu1
 
@@ -31,18 +31,39 @@ CREATE TABLE IF NOT EXISTS `PRODUCTS` (
   `PROD_NAME` varchar(20) NOT NULL,
   `PROD_PRICE` int(6) NOT NULL,
   `PROD_QUANTITY` int(3) NOT NULL,
-  `PROD_DESC` text NOT NULL,
-  `PROD_TYPE` varchar(10) NOT NULL,
+  `PROD_DESC` varchar(900) NOT NULL,
   PRIMARY KEY (`PROD_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
 
 --
--- Dumping data for table `PRODUCTS`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `PRODUCTS` (`PROD_ID`, `PROD_NAME`, `PROD_PRICE`, `PROD_QUANTITY`, `PROD_DESC`, `PROD_TYPE`) VALUES
-(1, 'test kite', 1000, 3, 'great kite', 'kite'),
-(2, 'test board', 500, 2, 'great board', 'board');
+INSERT INTO `products` (`PROD_ID`, `PROD_NAME`, `PROD_PRICE`, `PROD_QUANTITY`, `PROD_DESC`, `PROD_TYPE`) VALUES
+(1, 'Wetsuit', 100, 50, 'Sexy pink wetsuit with yellow trim', 'wetsuit'),
+(50, 'SuperKite 2000', 400, 25, 'This kite makes you fucking awesome', 'kite'),
+(51, 'Cheapo Sail', 250, 40, 'This kite is a bit shit really', 'kite');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_image`
+--
+
+CREATE TABLE IF NOT EXISTS `product_image` (
+  `PROD_ID` int(8) NOT NULL,
+  `IMAGE_ID` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_image`
+--
+
+INSERT INTO `product_image` (`PROD_ID`, `IMAGE_ID`) VALUES
+(1,  'images/001_1.jpg'),
+(1,  'images/001_2.jpg'),
+(50, 'images/050_1.jpg'),
+(51, 'images/051_1.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
