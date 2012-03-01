@@ -1,21 +1,29 @@
+body {
+	background-color:#99CBFF;
+	}
 #container {
 	margin: auto;
 	background-color:grey;
-	max-width: 100%;
+	max-width: 1200px;
+	width:100%;
 	height:100%;	
 	overflow:hidden;
 	}
 	
 #header {
 	height:190px;
+	width:100%;
 	background-color:lightgrey;
 	margin:auto;
-	margin-bottom:40px;
+	margin-bottom:10px;
 	}
 #breadcrumb {
+	height:15px;
 	font-size:10px;
 	float:left;
 	width:100%;
+	margin-bottom:10px;
+	padding-left:10px;
 	}
 
 #fullpackage {
@@ -27,10 +35,12 @@
 	}	
 #newproducts {
 	margin-left: 60px;
-	height:300px;
+	margin-right:55px;
+	height:500px;
 	width:300px;
 	background-color: lightblue;
 	float:left;	
+	
 	}
 #kites {
 	height:200px;
@@ -54,9 +64,10 @@
 	height:200px;
 	width:300px;
 	background-color: lightblue;
-	margin-left:65px;
+	margin-left:60px;
 	margin-top:10px;
 	margin-bottom:10px;
+	margin-right:55px;
 	float:left;
 	}
 #footer {
