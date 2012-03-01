@@ -20,7 +20,7 @@
 
 #fullpackage {
 	margin-left:120px;
-	height:500px;
+	height:300px;
 	width:665px;
 	background-color: darkgrey;
 	float:left;
