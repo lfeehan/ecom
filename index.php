@@ -53,6 +53,8 @@ mysql_close($db_handle);
  		<div id="kites"><? echo "kites go here " ?></div>
  		<div id="boards"><?echo "boards go here" ?> </div>
  		<div id="accessories"><? echo "accessories go here"?> </div>
+        
+        <div id="footer"><? echo "terms and conds etc" ?> </div>
  	 
 
 
