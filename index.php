@@ -29,10 +29,8 @@ $db_found = mysql_select_db($database, $db_handle);
  	
  	<div id="fullpackage">
  	
- 	<?php echo "full package image link.<BR>"?>
- 	
- 	
- 	
+ 	<?php echo "I KNOW THESE WONT REALLY GO HERE ITS JUST TO TEST PHP/SQL I/O. Lenny.<BR>"?>
+
 	<?php
 
 	$allProd = "SELECT * FROM PRODUCTS";
@@ -59,17 +57,18 @@ $db_found = mysql_select_db($database, $db_handle);
 		echo "<p>";
 		echo "About: " . $prod_desc;
  		echo "</p>";
- 		
+ 		 		
  	$SQL2 = "SELECT IMAGE_ID
-		FROM `product_image`
-		JOIN products ON product_image.PROD_ID = \"" . $prod_id . "\"";
+		FROM product_image
+		WHERE PROD_ID = \"" . $prod_id . "\"";
 		$result2 = mysql_query($SQL2);
-		
-		$image_field = mysql_fetch_assoc($result2);
+
+		while ($image_field = mysql_fetch_assoc($result2)){
 			$image_loc= $image_field['IMAGE_ID'];
 			echo "<p>";
 			echo "<img src =\"" . $image_loc . "\">";
-			echo "</p>";			
+			echo "</p>";
+		}
 
  	
 	echo "</div>";
