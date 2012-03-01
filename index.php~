@@ -13,11 +13,9 @@
 
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database, $db_handle); 
-$SQL = "SELECT * FROM PRODUCTS";
+$SQL = "SELECT * FROM `PRODUCTS`";
 $result = mysql_query($SQL);
  if ($db_found) {
-
-
 
 while ($db_field = mysql_fetch_assoc($result)) { 
 $prod_id= $db_field['PROD_ID'];
@@ -30,7 +28,7 @@ mysql_close($db_handle);
 
 }
 else {
-echo "Database NOT Found ";
+ECHO "Database NOT Found ";
 mysql_close($db_handle);
 }
 
@@ -50,7 +48,7 @@ mysql_close($db_handle);
  		<div id="fullpackage">
  		<?php echo "full package image link.<BR>"?>
  		<p>
- 		<?php echo "Product Name: " . $prod_name; ?>
+ 		<?php echo "ProductName: " . $prod_name; ?>
  		</p>
  		<p>
  		<?php echo "Price:" . $prod_price; ?>

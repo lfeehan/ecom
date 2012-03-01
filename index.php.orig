@@ -13,11 +13,9 @@
 
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database, $db_handle); 
-$SQL = "SELECT * FROM PRODUCTS";
+$SQL = "SELECT * FROM `PRODUCTS`";
 $result = mysql_query($SQL);
  if ($db_found) {
-
-
 
 while ($db_field = mysql_fetch_assoc($result)) { 
 $prod_id= $db_field['PROD_ID'];
@@ -30,7 +28,7 @@ mysql_close($db_handle);
 
 }
 else {
-echo "Database NOT Found ";
+ECHO "Database NOT Found ";
 mysql_close($db_handle);
 }
 
@@ -48,6 +46,15 @@ mysql_close($db_handle);
  	<?php echo "breadcrumb" ?></div>
  	
  		<div id="fullpackage">
+<<<<<<< HEAD
+ 		<? echo "full package image link.<BR>"?> <? echo $prod_name; ?></div>
+ 		<div id="newproducts"><? echo "new products go here"?></div>
+ 		<div id="kites"><? echo "kites go here " ?></div>
+ 		<div id="boards"><?echo "boards go here" ?> </div>
+ 		<div id="accessories"><? echo "accessories go here"?> </div>
+        
+        <div id="footer"><? echo "terms and conds etc" ?> </div>
+=======
  		<?php echo "full package image link.<BR>"?>
  		<p>
  		<?php echo "Product Name: " . $prod_name; ?>
@@ -65,6 +72,7 @@ mysql_close($db_handle);
  		<div id="kites"><?php echo "kites go here " ?></div>
  		<div id="boards"><?php echo "boards go here" ?> </div>
  		<div id="accessories"><?php echo "accessories go here"?> </div>
+>>>>>>> 4e1f5eec96fae954d0a09663c9cb81650b595877
  	 
 
 

@@ -10,7 +10,6 @@
 	height:190px;
 	background-color:lightgrey;
 	margin:auto;
-	margin-bottom:40px;
 	}
 #breadcrumb {
 	font-size:10px;
@@ -59,14 +58,6 @@
 	margin-bottom:10px;
 	float:left;
 	}
-#footer {
-	height: 60px;
-	width: 665px;
-	background-color:white;
-	float: left;
-	margin-left:275px;
-	margin-top:10px;
-	margin-bottom:10px;
-	}
+	
 
 	

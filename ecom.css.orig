@@ -7,8 +7,13 @@
 	}
 	
 #header {
+<<<<<<< HEAD
+	height:140px;
+	background-color:green;
+=======
 	height:190px;
 	background-color:lightgrey;
+>>>>>>> 4e1f5eec96fae954d0a09663c9cb81650b595877
 	margin:auto;
 	margin-bottom:40px;
 	}
