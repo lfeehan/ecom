@@ -7,7 +7,7 @@
  	
 <?php
     $user_name = "root";
-    $password = "";
+    $password = "p";
     $database = "ecom";
     $server = "127.0.0.1"; 
 
