@@ -6,16 +6,6 @@
  <title>Kitesurfing Shop</title>
  <link href="ecom.css" rel="stylesheet" type="text/css" />
  	
-<?php
-    $user_name = "root";
-    $password = "p";
-    $database = "ecom";
-    $server = "127.0.0.1"; 
-
-$db_handle = mysql_connect($server, $user_name, $password);
-$db_found = mysql_select_db($database, $db_handle); 
-?>
- 
  </head>
 <!--Header file contains the header of the site -->
 
