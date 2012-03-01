@@ -7,7 +7,7 @@
  	
 <?php
     $user_name = "root";
-    $password = "p";
+    $password = "";
     $database = "ecom";
     $server = "127.0.0.1"; 
 
@@ -35,8 +35,8 @@ $db_found = mysql_select_db($database, $db_handle);
  	
 	<?php
 
-	$SQL = "SELECT * FROM PRODUCTS";
-	$result = mysql_query($SQL);
+	$allProd = "SELECT * FROM PRODUCTS";
+	$result = mysql_query($allProd);
 	 if ($db_found) {
 	
 	
@@ -71,15 +71,22 @@ $db_found = mysql_select_db($database, $db_handle);
 			echo "<img src =\"" . $image_loc . "\">";
 			echo "</p>";			
 
- 		
+ 	
 	echo "</div>";
 	
 	}
+	$kites=mysql_query("SELECT * FROM PRODUCTS WHERE PROD_TYPE='kite'");
+	$kites_result=mysql_fetch_array($kites);
+ 		$kites_name=$kites_result['PROD_NAME'];	
+ 	
+ 	$boards=mysql_query("SELECT*FROM PRODUCTS WHERE PROD_TYPE='board'");
+ 	$boards_result=mysql_fetch_array($boards);
+ 	$boards_name=$boards_result['PROD_NAME'];
 	?>
  		</div>
- 		<div id="newproducts"><?php echo "new products go here"?></div>
- 		<div id="kites"><?php echo "kites go here " ?></div>
- 		<div id="boards"><?php echo "boards go here" ?> </div>
+ 		<div id="newproducts"><?php echo "new products go here :"?></div>
+ 		<div id="kites"><?php  echo "kites go here :".$kites_name ?></div>
+ 		<div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
  		<div id="accessories"><?php echo "accessories go here"?> </div>
 
 
