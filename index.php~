@@ -13,27 +13,7 @@
 
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database, $db_handle); 
-$SQL = "SELECT * FROM `PRODUCTS`";
-$result = mysql_query($SQL);
- if ($db_found) {
-
-while ($db_field = mysql_fetch_assoc($result)) { 
-$prod_id= $db_field['PROD_ID'];
-$prod_name= $db_field['PROD_NAME'];
-$prod_price= $db_field['PROD_PRICE'];
-$prod_quantity= $db_field['PROD_QUANTITY'];
-}
-
-mysql_close($db_handle);
-
-}
-else {
-ECHO "Database NOT Found ";
-mysql_close($db_handle);
-}
-
 ?>
- 
  
  </head>
  
@@ -44,28 +24,75 @@ mysql_close($db_handle);
  </div>
  	<div id="breadcrumb" >
  	<?php echo "breadcrumb" ?></div>
+
  	
- 		<div id="fullpackage">
- 		<?php echo "full package image link.<BR>"?>
- 		<p>
- 		<?php echo "ProductName: " . $prod_name; ?>
- 		</p>
- 		<p>
- 		<?php echo "Price:" . $prod_price; ?>
- 		</p>
- 		<p>
- 		<?php echo "In Stock :" . $prod_quantity; ?>
- 		</p>	
+ 	
+ 	<div id="fullpackage">
+ 	
+ 	<?php echo "full package image link.<BR>"?>
+ 	
+ 	
+ 	
+	<?php
+
+	$SQL = "SELECT * FROM PRODUCTS";
+	$result = mysql_query($SQL);
+	 if ($db_found) {
+	
+	
+	while ($db_field = mysql_fetch_assoc($result)) { 
+		echo "<div style=\"float: left; padding: 10px; width:200px;\">";
+	$prod_id= $db_field['PROD_ID'];
+	$prod_name= $db_field['PROD_NAME'];
+		echo "<p>";
+		echo "Product Name: " . $prod_name;
+ 		echo "</p>";
+	$prod_price= $db_field['PROD_PRICE'];
+		echo "<p>";
+		echo "Price: " . $prod_price;
+ 		echo "</p>";	
+	$prod_quantity= $db_field['PROD_QUANTITY'];
+		echo "<p>";
+		echo "In Stock: " . $prod_quantity;
+ 		echo "</p>";
+ 	$prod_desc= $db_field['PROD_DESC'];
+		echo "<p>";
+		echo "About: " . $prod_desc;
+ 		echo "</p>";
  		
+ 	$SQL2 = "SELECT IMAGE_ID
+		FROM `product_image`
+		JOIN products ON product_image.PROD_ID = \"" . $prod_id . "\"";
+		$result2 = mysql_query($SQL2);
+		
+		$image_field = mysql_fetch_assoc($result2);
+			$image_loc= $image_field['IMAGE_ID'];
+			echo "<p>";
+			echo "<img src =\"" . $image_loc . "\">";
+			echo "</p>";			
+
  		
+	echo "</div>";
+	
+	}
+	?>
  		</div>
  		<div id="newproducts"><?php echo "new products go here"?></div>
  		<div id="kites"><?php echo "kites go here " ?></div>
  		<div id="boards"><?php echo "boards go here" ?> </div>
  		<div id="accessories"><?php echo "accessories go here"?> </div>
- 	 
 
 
+	<?php
+		mysql_close($db_handle);
+		}
+		else {
+		echo "Database NOT Found ";
+		mysql_close($db_handle);
+		}
+	?> 		
+ 		
+ 		
 </div> <! container close div !>
 </body>
 <? mysql_close($db_handle); ?>
