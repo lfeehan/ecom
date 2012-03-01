@@ -43,20 +43,20 @@ $db_found = mysql_select_db($database, $db_handle);
 	$prod_id= $db_field['PROD_ID'];
 	$prod_name= $db_field['PROD_NAME'];
 		echo "<p>";
-		echo "Product Name: " . $prod_name;
- 		echo "</p>";
+		echo "Product Name: <b>" . $prod_name;
+ 		echo "</b></p>";
 	$prod_price= $db_field['PROD_PRICE'];
 		echo "<p>";
-		echo "Price: " . $prod_price;
- 		echo "</p>";	
+		echo "Price: <b>" . $prod_price;
+ 		echo "</b></p>";	
 	$prod_quantity= $db_field['PROD_QUANTITY'];
 		echo "<p>";
-		echo "In Stock: " . $prod_quantity;
- 		echo "</p>";
+		echo "In Stock: <b>" . $prod_quantity;
+ 		echo "</b></p>";
  	$prod_desc= $db_field['PROD_DESC'];
 		echo "<p>";
-		echo "About: " . $prod_desc;
- 		echo "</p>";
+		echo "About: <b>" . $prod_desc;
+ 		echo "</b></p>";
  		 		
  	$SQL2 = "SELECT IMAGE_ID
 		FROM product_image
