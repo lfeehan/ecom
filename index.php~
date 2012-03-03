@@ -20,7 +20,7 @@ $db_found = mysql_select_db($database, $db_handle);
 
 	<?php
 
-	$allProd = "SELECT * FROM products";
+	$allProd = "SELECT * FROM PRODUCTS";
 	$result = mysql_query($allProd);
 	 if ($db_found) {
 	
@@ -61,42 +61,29 @@ $db_found = mysql_select_db($database, $db_handle);
 	echo "</div>";
 	
 	}
-	$kites=mysql_query("SELECT * FROM products WHERE PROD_TYPE='kite'");
+	$kites=mysql_query("SELECT * FROM PRODUCTS WHERE PROD_TYPE='kite'");
 	$kites_result=mysql_fetch_array($kites);
  		$kites_name=$kites_result['PROD_NAME'];	
  	
- 	$boards=mysql_query("SELECT*FROM products WHERE PROD_TYPE='board'");
+ 	$boards=mysql_query("SELECT*FROM PRODUCTS WHERE PROD_TYPE='board'");
  	$boards_result=mysql_fetch_array($boards);
  	$boards_name=$boards_result['PROD_NAME'];
 	?>
  		</div>
-<<<<<<< HEAD
- 		<div id="newproducts"><?php echo "new products go here :"?></div>
- 		<div id="kites"> <a href="products.php?prod_type=kite">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
-=======
  		<div id="newproducts">
  		NEW STOCK
- 		(Add date_added field to DB pick newest 2)
  		
  		<?php
  		$newProd = "SELECT * FROM PRODUCTS";
-		$newProds = mysql_query($newProd);
+ 		$newProds = mysql_query($newProd);
  	
  			while ($new_field = mysql_fetch_assoc($newProds)) { 
- 					echo "<div style=\"float: top; padding: 10px; width:175px;\">";
- 				$prod_id= $new_field['PROD_ID'];
- 				$prod_name= $new_field['PROD_NAME'];
- 					echo "<a href =\"generate_link.php\">" . $prod_name . "</a>";
- 				
- 				$SQLnew = "SELECT IMAGE_ID
- 					FROM product_image
- 					WHERE PROD_ID = \"" . $prod_id . "\"";
- 				$result3 = mysql_query($SQLnew);
- 				
- 				$image_field = mysql_fetch_assoc($result3);
- 				$image_loc= $image_field['IMAGE_ID'];
-					echo "<img src =\"" . $image_loc . "\">";
-					echo "</div>";
+ 				echo "<div style=\"float: top; padding: 10px; width:100px;\">";
+ 				$prod_id= $new_field['PROD_NAME'];
+ 				echo $prod_id;
+ 				$prod_img= $new_field['IMAGE_ID'];
+ 				echo $prod_id;
+ 				echo "</div>";
  			}
  	 	
  		
@@ -108,7 +95,6 @@ $db_found = mysql_select_db($database, $db_handle);
  		
  		
  		<div id="kites"><?php  echo "kites go here :".$kites_name ?></div>
->>>>>>> 98e417a77ced7ce3a398cef2140d355df091311f
  		<div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
  		<div id="accessories"><?php echo "accessories go here"?> </div>
 
