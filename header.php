@@ -11,7 +11,5 @@
 
 <div id="container">
 	<div id="header"><?php Echo "Header image here "."<BR>" ;?>
- </div>
- 	<div id="breadcrumb" >
- 	<?php echo "breadcrumb" ?></div>
+
  </div>

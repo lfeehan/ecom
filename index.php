@@ -13,7 +13,9 @@ $db_found = mysql_select_db($database, $db_handle);
 
  <body>
  
- <div id="container">  	
+ <div id="container"> 
+ <div id="breadcrumb" >
+ 	<a href="index.php" >Home </a> 	</div> 	
  	<div id="fullpackage">
  	
  	<?php echo "I KNOW THESE WONT REALLY GO HERE ITS JUST TO TEST PHP/SQL I/O. Lenny.<BR>"?>
@@ -70,10 +72,7 @@ $db_found = mysql_select_db($database, $db_handle);
  	$boards_name=$boards_result['PROD_NAME'];
 	?>
  		</div>
-<<<<<<< HEAD
- 		<div id="newproducts"><?php echo "new products go here :"?></div>
- 		<div id="kites"> <a href="products.php?prod_type=kite">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
-=======
+
  		<div id="newproducts">
  		NEW STOCK
  		(Add date_added field to DB pick newest 2)
@@ -103,12 +102,14 @@ $db_found = mysql_select_db($database, $db_handle);
  		?>
  		
  		</div>
+ 		<div id="kites"> <a href="products.php?prod_type=Kites">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
+
  		
  		
  		
  		
- 		<div id="kites"><?php  echo "kites go here :".$kites_name ?></div>
->>>>>>> 98e417a77ced7ce3a398cef2140d355df091311f
+ 		
+
  		<div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
  		<div id="accessories"><?php echo "accessories go here"?> </div>
 
