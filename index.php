@@ -20,7 +20,7 @@ $db_found = mysql_select_db($database, $db_handle);
 
 	<?php
 
-	$allProd = "SELECT * FROM PRODUCTS";
+	$allProd = "SELECT * FROM products";
 	$result = mysql_query($allProd);
 	 if ($db_found) {
 	
@@ -61,17 +61,17 @@ $db_found = mysql_select_db($database, $db_handle);
 	echo "</div>";
 	
 	}
-	$kites=mysql_query("SELECT * FROM PRODUCTS WHERE PROD_TYPE='kite'");
+	$kites=mysql_query("SELECT * FROM products WHERE PROD_TYPE='kite'");
 	$kites_result=mysql_fetch_array($kites);
  		$kites_name=$kites_result['PROD_NAME'];	
  	
- 	$boards=mysql_query("SELECT*FROM PRODUCTS WHERE PROD_TYPE='board'");
+ 	$boards=mysql_query("SELECT*FROM products WHERE PROD_TYPE='board'");
  	$boards_result=mysql_fetch_array($boards);
  	$boards_name=$boards_result['PROD_NAME'];
 	?>
  		</div>
  		<div id="newproducts"><?php echo "new products go here :"?></div>
- 		<div id="kites"><?php  echo "kites go here :".$kites_name ?></div>
+ 		<div id="kites"> <a href="products.php?prod_type=kite">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
  		<div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
  		<div id="accessories"><?php echo "accessories go here"?> </div>
 
