@@ -75,31 +75,30 @@ $db_found = mysql_select_db($database, $db_handle);
 
  		<div id="newproducts">
  		NEW STOCK
- 		(Add date_added field to DB pick newest 2)
+ 		(2 newest added to database, based on field DATE_ADDED)
+ 		update your DB with ecom.sql to see
  		
  		<?php
- 		$newProd = "SELECT * FROM PRODUCTS";
-		$newProds = mysql_query($newProd);
- 	
+			$newProd = "SELECT * FROM products ORDER BY DATE_ADDED DESC LIMIT 2";
+			$newProds = mysql_query($newProd);
+		
  			while ($new_field = mysql_fetch_assoc($newProds)) { 
- 					echo "<div style=\"float: top; padding: 10px; width:175px;\">";
  				$prod_id= $new_field['PROD_ID'];
  				$prod_name= $new_field['PROD_NAME'];
- 					echo "<a href =\"generate_link.php\">" . $prod_name . "</a>";
+ 				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
  				
- 				$SQLnew = "SELECT IMAGE_ID
- 					FROM product_image
- 					WHERE PROD_ID = \"" . $prod_id . "\"";
+ 				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
+ 				echo "<a href = \"http://localhost/ecom/dynamic_product.php?product=" . $prod_id . "\">" .  $prod_name . "</a>";
+ 				
+ 				$SQLnew = "SELECT IMAGE_ID FROM product_image WHERE PROD_ID = \"" . $prod_id . "\"";
+ 				
  				$result3 = mysql_query($SQLnew);
- 				
  				$image_field = mysql_fetch_assoc($result3);
  				$image_loc= $image_field['IMAGE_ID'];
-					echo "<img src =\"" . $image_loc . "\">";
-					echo "</div>";
+				echo "<img src =\"" . $image_loc . "\">";
+				echo "</div>";
  			}
- 	 	
- 		
- 		?>
+ 		?>	
  		
  		</div>
  		<div id="kites"> <a href="products.php?prod_type=Kites">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
