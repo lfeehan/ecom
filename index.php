@@ -5,9 +5,17 @@
     $password = "";
     $database = "ecom";
     $server = "127.0.0.1"; 
-
+//create DB connectiong
 $db_handle = mysql_connect($server, $user_name, $password);
+if (!$db_handle) {
+    die("Database connection failed: ". mysql_error());
+    }
+//select(or find) a DB to use
 $db_found = mysql_select_db($database, $db_handle); 
+if(!$db_found) {
+    die("Database not found: ".mysql_error());
+    }
+
 ?> 
 
 
@@ -20,28 +28,29 @@ $db_found = mysql_select_db($database, $db_handle);
  	<?php echo "I KNOW THESE WONT REALLY GO HERE ITS JUST TO TEST PHP/SQL I/O. Lenny.<BR>"?>
 
 	<?php
-
-	$allProd = "SELECT * FROM products";
-	$result = mysql_query($allProd);
-	 if ($db_found) {
+    // Perform DB query
+	$result = mysql_query("SELECT * FROM products", $db_handle);
+	 if (!$result) {
+	    die("Database query failed: " .mysql_error());
+	    }
+	 
 	
-	
-	while ($db_field = mysql_fetch_assoc($result)) { 
+	while ($row = mysql_fetch_array($result)) { 
 		echo "<div style=\"float: left; padding: 10px; width:200px;\">";
-	$prod_id= $db_field['PROD_ID'];
-	$prod_name= $db_field['PROD_NAME'];
+	$prod_id= $row['PROD_ID'];
+	$prod_name= $row['PROD_NAME'];
 		echo "<p>";
 		echo "Product Name: <b>" . $prod_name;
  		echo "</b></p>";
-	$prod_price= $db_field['PROD_PRICE'];
+	$prod_price= $row['PROD_PRICE'];
 		echo "<p>";
 		echo "Price: <b>" . $prod_price;
  		echo "</b></p>";	
-	$prod_quantity= $db_field['PROD_QUANTITY'];
+	$prod_quantity= $row['PROD_QUANTITY'];
 		echo "<p>";
 		echo "In Stock: <b>" . $prod_quantity;
  		echo "</b></p>";
- 	$prod_desc= $db_field['PROD_DESC'];
+ 	$prod_desc= $row['PROD_DESC'];
 		echo "<p>";
 		echo "About: <b>" . $prod_desc;
  		echo "</b></p>";
@@ -114,12 +123,7 @@ $db_found = mysql_select_db($database, $db_handle);
 
 
 	<?php
-		mysql_close($db_handle);
-		}
-		else {
-		echo "Database NOT Found ";
-		mysql_close($db_handle);
-		}
+		mysql_close($db_handle);		
 	?> 		
  		
  		

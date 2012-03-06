@@ -13,7 +13,14 @@ $db_found = mysql_select_db($database, $db_handle);
 <body>
  <?php
 		$prod_type=$_GET['prod_type'];
+		echo $prod_type;
+		$product=mysql_query("SELECT * from products where PROD_TYPE='kites'");
 		
+		
+		$boards_result=mysql_fetch_array($product);
+ 	    $prod_name=$boards_result['PROD_NAME'];
+		
+		echo $prod_name;
 		?> 
  <div id="container">  	
   </div>
@@ -21,7 +28,7 @@ $db_found = mysql_select_db($database, $db_handle);
  	<div class="product">
 	<?php
 		
-		echo $prod_type;
+		echo $prod_name;
 		?> 
 	<?php echo 'display image as link to product go to dynamic product page on click'; ?>
 	</div>
