@@ -14,8 +14,7 @@ $db_found = mysql_select_db($database, $db_handle);
  <body>
  
  <div id="container"> 
- <div id="breadcrumb" >
- 	<a href="index.php" >Home </a> 	</div> 	
+ <?php include 'breadcrumb.php';?>	
  	<div id="fullpackage">
  	
  	<?php echo "I KNOW THESE WONT REALLY GO HERE ITS JUST TO TEST PHP/SQL I/O. Lenny.<BR>"?>
@@ -95,7 +94,8 @@ $db_found = mysql_select_db($database, $db_handle);
  				$result3 = mysql_query($SQLnew);
  				$image_field = mysql_fetch_assoc($result3);
  				$image_loc= $image_field['IMAGE_ID'];
-				echo "<img src =\"" . $image_loc . "\">";
+ 				
+				echo "<img src =\"" . $image_loc . "\">"; 
 				echo "</div>";
  			}
  		?>	

@@ -17,10 +17,21 @@ $db_found = mysql_select_db($database, $db_handle);
 		?> 
  <div id="container">  	
   </div>
- 	<div id="breadcrumb" >
- 	<a href="index.php" >Home </a> > <?php echo $prod_type ?> 
- 	</div>
- 	<div id="fullpackage">
+ <?php include 'breadcrumb.php';?>
+ 	<div class="product">
+	<?php
+		
+		echo $prod_type;
+		?> 
+	<?php echo 'display image as link to product go to dynamic product page on click'; ?>
+	</div>
+	 	<div class="product">
+	<?php
+		
+		echo $prod_type;
+		?> 
+	</div>
+	 	<div class="product">
 	<?php
 		
 		echo $prod_type;

@@ -3,8 +3,8 @@
 <body>
  
  <div id="container">  	
- 	
- 	<div id="fullpackage">
+ 	 <?php include 'breadcrumb.php';?>
+ 	<div id="productText">
  	
  	<?php
  		#this takes the php?product=xxx value of xxx, this will reference the product we will display this page for
@@ -61,6 +61,11 @@
 			mysql_close($db_handle);
 		}
 	?> 
+	product text
+	<div id="productImage" >
+	Images
+	</div> <! close productImage text >
+	
 	
 	</div>
  	

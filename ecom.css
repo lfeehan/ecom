@@ -24,6 +24,7 @@ body {
 	width:100%;
 	margin-bottom:10px;
 	padding-left:10px;
+    background-color:grey;
 	}
 
 #fullpackage {
@@ -80,4 +81,30 @@ body {
 	margin-bottom:10px;
 	}
 
-	
+.image {
+    height:50px;
+    width:50px;
+    }
+    
+#productText {
+    height:700px;
+    width:900px;
+    background-color:white;
+    margin:auto;
+    
+    padding:20px;
+    }
+#productImage {
+    height:250px;
+    width:250px;
+    float:right;
+    background-color:green;
+    }
+ 
+.product {
+    height:300px;
+    width:300px;
+    margin:20px;
+    background-color:lightgrey;
+    float:left;
+    }
