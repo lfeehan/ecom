@@ -110,21 +110,12 @@ if(!$db_found) {
  		?>	
  		
  		</div>
- 		<div id="kites"> <a href="products.php?prod_type=Kites">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
-
- 		
- 		
- 		
- 		
- 		
-
- 		<div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
- 		<div id="accessories"><?php echo "accessories go here"?> </div>
+ 		<div id="kites"> <a href="products.php?prod_type=kite">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
+	    <div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
+ 		<div id="accessories"><a href="products.php?prod_type=wetsuit">Kites</a><?php echo "accessories go here"?> </div>
 
 
-	<?php
-		mysql_close($db_handle);		
-	?> 		
+		
  		
  		
 </div> <!-- container close div -->
