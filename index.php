@@ -110,9 +110,11 @@ if(!$db_found) {
  		?>	
  		
  		</div>
- 		<div id="kites"> <a href="products.php?prod_type=kite">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
-	    <div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
- 		<div id="accessories"><a href="products.php?prod_type=wetsuit">Kites</a><?php echo "accessories go here"?> </div>
+ 		<!--prod_type variables are being passed through to the prodcuts.php
+ 		 page here -->
+ 		<div id="kites"> <a href="products.php?prod_type=kite"><img src="images/kitesCategory.png"></a></div>
+	    <div id="boards"> <a href="products.php?prod_type=board">Boards </div>
+ 		<div id="accessories"><a href="products.php?prod_type=accessories">Accessories</a> </div>
 
 
 		

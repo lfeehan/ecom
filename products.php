@@ -1,4 +1,6 @@
-
+<! -- Variable prod_type is being passed through. this is included in the SQL 
+query and a div of the product class is displayed for each result for product
+of that type-->
 
 <?php include 'header.php';?>
 <?php
@@ -19,7 +21,6 @@ $db_found = mysql_select_db($database, $db_handle);
 		 
 		$prod_type=$_GET['prod_type'];
 		$result=mysql_query("SELECT * FROM products WHERE PROD_TYPE='$prod_type'",$db_handle);
-		
 		while($row=mysql_fetch_array($result)) {
     		echo '<div class="product">';
             echo $row['PROD_NAME']."<br />".$row['PROD_DESC'];
