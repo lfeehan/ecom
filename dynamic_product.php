@@ -19,7 +19,7 @@
 		$db_found = mysql_select_db($database, $db_handle); 
 		
 		#sql query
-		$allProd = "SELECT * FROM PRODUCTS WHERE PROD_ID =" . $url_id;
+		$allProd = "SELECT * FROM products WHERE PROD_ID =" . $url_id;
 		$result = mysql_query($allProd);
 		if ($db_found) {
 			while ($db_field = mysql_fetch_assoc($result)) {
