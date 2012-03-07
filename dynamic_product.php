@@ -7,7 +7,7 @@
  	<div id="productText">
  	
  	<?php
- 		#this takes the php?product=xxx value of xxx, this will reference the product we will display this page for
+ 		#this takes the php?product=xxx value of xxxx, this will reference the product we will display this page for
 		$url_id = $_GET['product'];
  	
 		#database bit
