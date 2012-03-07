@@ -1,7 +1,7 @@
 <?php include 'header.php';?>
 
 <body>
-<<<<<<< HEAD
+
 <div id="container">
 <?php include 'breadcrumb.php';?>
 <div id="productText">
@@ -63,7 +63,7 @@ product text
 <?php echo "<img src =\"" . $image_loc . "\">"; ?>
 </div> <! close productImage text >
 </div>
-=======
+
  
  <div id="container">  	
  	 <?php include 'breadcrumb.php';?>
@@ -132,8 +132,6 @@ product text
 	
 	</div>
  	
- 		
->>>>>>> c6dc661681e6b3ebc7247f11ac3fc0774cd67353
 </div> <!-- container close div -->
 <?php include 'footer.php';?>
 </html>
