@@ -85,24 +85,18 @@
  		?>	
  		
  		</div>
-<<<<<<< HEAD
+
  		<!--prod_type variables are being passed through to the prodcuts.php
  		 page here -->
  		<div id="kites"> <a href="products.php?prod_type=kite"><img src="images/kitesCategory.png"></a></div>
 	    <div id="boards"> <a href="products.php?prod_type=board">Boards </div>
  		<div id="accessories"><a href="products.php?prod_type=accessories">Accessories</a> </div>
-=======
- 		<div id="kites"> <a href="products.php?prod_type=Kites">Kites</a><?php  echo "kites go here :".$kites_name ?></div>
->>>>>>> c6dc661681e6b3ebc7247f11ac3fc0774cd67353
+
+ 		
 
  		
  		
- 		
- 		
- 		
-
- 		<div id="boards"><?php echo "boards go here :".$boards_name ?> </div>
- 		<div id="accessories"><?php echo "accessories go here"?> </div>
+ 	
  		
 </div> <!-- container close div -->
 <?php include 'footer.php';?>
