@@ -10,6 +10,7 @@
 <!--Header file contains the header of the site -->
 
 <div id="container">
-	<div id="header"><?php Echo "Header image here "."<BR>" ;?>
+	<div id="header"><img src="images/header.jpg">
+	shopping cart here?
 
  </div>

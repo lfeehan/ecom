@@ -7,11 +7,12 @@ of that type-->
 <body>
  <div id="container">  	
   </div>
- <?php include 'breadcrumb.php';?>
+ <?php $prod_type=$_GET['prod_type'];
+  include 'breadcrumb.php';?>
  	
 	<?php
 		 
-		$prod_type=$_GET['prod_type'];
+		
 		
 		$all_rows=queryDB("SELECT * FROM products WHERE PROD_TYPE='$prod_type'");
 		while($one_row=mysql_fetch_assoc($all_rows)) {

@@ -1,4 +1,15 @@
 <div id="breadcrumb" >
- 	<a href="index.php" >Home </a> 	</div> 
  	
- 	<! this file needs to know what page your on and give a breadcrumb back to index page ->
+ <?php echo '<a href="index.php">Home</a>';
+    if ($prod_type != null) {
+        echo " > ";
+        echo "<a href=\"products.php?prod_type=".$prod_type."\">".$prod_type. "</a>";
+        }
+    
+    if ($prod_name != null) {
+        echo " > ";
+        echo $prod_name;
+        }
+      ?>
+</div> 
+
