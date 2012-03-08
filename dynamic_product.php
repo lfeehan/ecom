@@ -16,6 +16,7 @@
 				$prod_desc= $db_field['PROD_DESC'];
 				$prod_type=$db_field['PROD_TYPE'];
 				
+				
 ?>
 <body>
 
