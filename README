@@ -31,5 +31,5 @@ pushes your experimental branches to the online. You need to be working on the <
 
 When you pull down the master with git, it pulls down the PRODUCTS.sql file for the database however
 this needs to be manually imported into your ecom database via phpmyadmin sql page on localhost.
-Click ecom database, drop any tables existing. Choose import and browse to the PRODUCTS.sql file.
-Likewise for pushing any DB changes back to git master. Export to PRODUCTS.sql in your working directory before pushing.
+Click ecom database, drop any tables existing. Choose import and browse to the ecom.sql file.
+Likewise for pushing any DB changes back to git master. Export to ecom.sql in your working directory before pushing.
