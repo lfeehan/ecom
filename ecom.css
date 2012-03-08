@@ -9,6 +9,52 @@ body {
 	height:100%;	
 	overflow:hidden;
 	}
+#leftdiv{
+	float:left;
+	margin-left:15px;
+	height:60%;
+	width:40%;
+	margin-bottom:10px;
+	background-color:#666666;
+	text-align:center;
+}
+#middiv{
+	float:left;
+	height:60%;
+	width:10%;
+	margin-left:10px;
+	background-color:#CCC;
+}
+#rigthdiv{
+	float:left;
+	width:45%;
+	height:60%;
+	margin-left:20px;
+	margin-bottom:10px;
+	background-color:#999;
+}
+
+.prodinfo{
+	float:left;
+	width:90%;
+	height:20%;
+	margin-left:5%;
+	margin-top:4%;
+	text-indent:5%;
+	background-color:#00FFFF;
+}
+#description{
+	float:left;
+	width:95%;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top:10px;
+	margin-bottom:10px;
+	height:35%;
+	background-color:#3300FF;
+	text-align:center;
+}
+	
 	
 #header {
 	height:190px;
@@ -98,7 +144,6 @@ body {
     height:250px;
     width:250px;
     float:right;
-    background-color:green;
     }
  
 .product {
