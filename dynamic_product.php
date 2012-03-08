@@ -25,13 +25,8 @@
 				$prod_desc= $db_field['PROD_DESC'];
 				$prod_type=$db_field['PROD_TYPE'];
 				
+<<<<<<< HEAD
 				
-
-?>
-<body>
-
-
- <?php
 				$SQL2 = "SELECT IMAGE_ID FROM product_image WHERE PROD_ID = \"" . $prod_id . "\"";
 				$result2 = mysql_query($SQL2);
 				while ($image_field = mysql_fetch_assoc($result2)){
@@ -43,6 +38,11 @@
 			}
 	
 	?> 
+=======
+?>
+<body>
+
+>>>>>>> parent of 093f641... style changed
 
  
  <div id="container">  	
@@ -95,7 +95,6 @@
 
  </div>	<!-- productText close div -->
 </div> <!-- container close div -->
-<?php include 'footer.php';?>
-<? mysql_close($db_handle); ?>
-</html>
 
+<?php mysql_close($db_handle); ?>
+</html>
