@@ -26,12 +26,7 @@
 				$prod_type=$db_field['PROD_TYPE'];
 				
 				
-
-?>
-<body>
-
-
- <?php
+						
 				$SQL2 = "SELECT IMAGE_ID FROM product_image WHERE PROD_ID = \"" . $prod_id . "\"";
 				$result2 = mysql_query($SQL2);
 				while ($image_field = mysql_fetch_assoc($result2)){
@@ -43,7 +38,6 @@
 			}
 	
 	?> 
-
  
  <div id="container">  	
  
@@ -95,7 +89,11 @@
 
  </div>	<!-- productText close div -->
 </div> <!-- container close div -->
-<?php include 'footer.php';?>
-<? mysql_close($db_handle); ?>
+<?php include 'footer.php';
+	mysql_close($db_handle);
+		}else{
+			echo "Database NOT Found ";
+			mysql_close($db_handle);
+		}
+?>
 </html>
-
