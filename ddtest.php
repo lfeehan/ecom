@@ -1,19 +1,9 @@
 <?php include 'header.php';?>
+<?php include 'database.php';?>
 
 <body>
 
-
- 
- <div id="container">  	
- 
-  <?php include 'breadcrumb.php';?> 
-   
- <div id="productText">
- 
- 	
- 	
- 	
- 	<?php
+<?php
  		#this takes the php?product=xxx value of xxx, this will reference the product we will display this page for
 		#$url_id = $_GET['product'];
 		if (isset ($_GET['product'])){
@@ -22,15 +12,7 @@
 		else{
 		$url_id = 50;
 		}		
- 	
-		#database bit
-		$user_name = "root";
-		$password = "";
-		$database = "ecom";
-		$server = "127.0.0.1"; 
-		$db_handle = mysql_connect($server, $user_name, $password);
-		$db_found = mysql_select_db($database, $db_handle); 
-		
+ 					
 		#sql query
 		$allProd = "SELECT * FROM products WHERE PROD_ID =" . $url_id;
 		$result = mysql_query($allProd);
@@ -41,6 +23,7 @@
 				$prod_price= $db_field['PROD_PRICE'];
 				$prod_quantity= $db_field['PROD_QUANTITY'];
 				$prod_desc= $db_field['PROD_DESC'];
+				$prod_type=$db_field['PROD_TYPE'];
 				
 				
 						
@@ -53,12 +36,19 @@
 					//echo "</p>";
 				}
 			}
-		mysql_close($db_handle);
-		}else{
-			echo "Database NOT Found ";
-			mysql_close($db_handle);
-		}
+	
 	?> 
+ 
+ <div id="container">  	
+ 
+  <?php include 'breadcrumb.php';?>  
+ <div id="productText">
+ 
+ 	
+ 	
+ 	
+ 	
+	 
     <div id="leftdiv">
     				<?php echo "<p>";
 					echo "<img src =\"" . $image_loc . "\">";
@@ -99,5 +89,11 @@
 
  </div>	<!-- productText close div -->
 </div> <!-- container close div -->
-<?php include 'footer.php';?>
+<?php include 'footer.php';
+	mysql_close($db_handle);
+		}else{
+			echo "Database NOT Found ";
+			mysql_close($db_handle);
+		}
+?>
 </html>

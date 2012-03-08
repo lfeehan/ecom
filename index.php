@@ -60,9 +60,7 @@
 	?>
  		</div>
  		<div id="newproducts">
- 		NEW STOCK
- 		(2 newest added to database, based on field DATE_ADDED)
- 		update your DB with ecom.sql to see
+ 		<h1>New Arrivals!</h1>
  		
  		<?php
 			$newProds = queryDB("SELECT * FROM products ORDER BY DATE_ADDED DESC LIMIT 2");
@@ -75,7 +73,7 @@
  				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
  				
  				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
- 				echo "<a href = \"http://localhost/ecom/dynamic_product.php?product=" . $prod_id . "\">" .  $prod_name . "</a>";
+ 				echo "<a href = \"dynamic_product.php?product=" . $prod_id . "\">" .  $prod_name . "</a>";
  				
  				$image_loc = getImage($prod_id);
  				
@@ -88,10 +86,13 @@
 
  		<!--prod_type variables are being passed through to the prodcuts.php
  		 page here -->
- 		<div id="kites"> <a href="products.php?prod_type=kite"><img src="images/kitesCategory.png"></a></div>
-	    <div id="boards"> <a href="products.php?prod_type=board">Boards </div>
- 		<div id="accessories"><a href="products.php?prod_type=accessories">Accessories</a> </div>
-
+ 		<div id="categories">
+     		<div id="kites"> <a href="products.php?prod_type=kite"><img src="images/categoryImages/kitesurf_kites_button.png"></a></div>
+	        <div id="boards"> <a href="products.php?prod_type=board"><img src="images/categoryImages/kiteboards_button.png"> </a></div>
+	        <div id="boards"> <a href="products.php?prod_type=surfboard"><img src="images/categoryImages/kite_surfboards_button.png"> </a></div>
+     		<div id="boards"> <a href="products.php?prod_type=harness"><img src="images/categoryImages/harnesses_button.png"> </a></div>
+     		<div id="accessories"><a href="products.php?prod_type=accessories"><img src="images/categoryImages/accessories_button.png"></a> </div>
+        </div>
  		
 
  		

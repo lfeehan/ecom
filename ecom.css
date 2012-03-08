@@ -1,9 +1,10 @@
 body {
 	background-color:#99CBFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
 	}
 #container {
 	margin: auto;
-	background-color:grey;
+	background-color:white;
 	max-width: 1200px;
 	width:100%;
 	height:100%;	
@@ -65,17 +66,17 @@ body {
 	}
 #breadcrumb {
 	height:15px;
-	font-size:10px;
+	font-size:12px;
 	float:left;
 	width:100%;
 	margin-bottom:10px;
 	padding-left:10px;
-    background-color:grey;
+    background-color:white;
 	}
 
 #fullpackage {
 	margin-left:120px;
-	height:500px;
+	height:400px;
 	width:665px;
 	background-color: darkgrey;
 	float:left;
@@ -83,38 +84,38 @@ body {
 #newproducts {
 	margin-left: 60px;
 	margin-right:55px;
-	height:500px;
+	height:400px;
 	width:300px;
 	background-color: lightblue;
 	float:left;	
 	
 	}
+#categories {
+    height:160px;
+    width:100%;
+    background-color:white;
+    float:left;
+    margin-top:10px;
+    }
 #kites {
-	height:345px;
-	width:300px;
-	background-color: lightblue;
+	height:160px;
+	width:160px;
 	margin-left:120px;
-	margin-top:10px;
 	margin-bottom: 10px;
 	float:left;
 	}
 #boards {
-	height:200px;
-	width:300px;
-	background-color: lightblue;
-	margin-left:65px;
-	margin-top:10px;
+	height:160px;
+	width:160px;
+	margin-left:55px;
 	margin-bottom: 10px;
 	float:left;
 	}
 #accessories {
-	height:200px;
-	width:300px;
-	background-color: lightblue;
-	margin-left:60px;
-	margin-top:10px;
+	height:160px;
+	width:160px;
+	margin-left:55px;
 	margin-bottom:10px;
-	margin-right:55px;
 	float:left;
 	}
 #footer {
@@ -136,9 +137,8 @@ body {
     height:700px;
     width:900px;
     background-color:white;
-    margin:auto;
-    
-    padding:20px;
+    margin:auto;    
+    padding:20px; 
     }
 #productImage {
     height:250px;
@@ -147,9 +147,14 @@ body {
     }
  
 .product {
-    height:300px;
-    width:300px;
-    margin:20px;
-    background-color:lightgrey;
+    height:160px;
+    width:100%;
+    border-top-style:solid;
+    background-color:white;
     float:left;
+    }
+    
+.prodthumb {
+    float:right;
+    margin-right:20px;
     }
