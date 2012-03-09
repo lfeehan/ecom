@@ -123,7 +123,68 @@
 			echo '</table>';			
 		}
 		
+		function viewOrders(){
+			$all_rows = queryDB("select * from orders");
 		
+			echo '<table border =2>
+			
+				<tr>
+					<th>Order ID</th>
+					<th>Customer ID</th>
+					<th>Cart ID</th>
+					<th>Order Date</th>
+				</tr>
+			';
+			
+			while ($one_row = mysql_fetch_assoc($all_rows)) {
+				$order_id = $one_row['order_id'];
+				$customer_id = $one_row['customer_id'];
+				$order_date = $one_row['order_date'];
+				$cart_id = $one_row['cart_id'];
+				
+				echo '<tr>';
+				
+				echo '<td>';
+					echo $order_id;
+				echo '</td>';
+				
+				echo '<td>';
+					echo $customer_id;
+				echo '</td>';
+				
+				echo '<td>';
+					echo $cart_id;
+				echo '</td>';
+				
+				echo '<td>';
+					echo $order_date;
+				echo '</td>';
+				echo '</tr>';
+				
+				echo '<tr>';
+				
+				echo "<td align = right colspan = \"4\">";
+				$cart = queryDB("select * from cart where cart_id=" . $cart_id);
+				
+				while ($cart_row = mysql_fetch_assoc($cart)) {
+					$prod_id = $cart_row['prod_id']; 
+					$qty = $cart_row['quantity'];
+					$name = mysql_fetch_assoc(queryDB("select name from products where prod_id =" .$prod_id));
+					$prod_name = $name['name'];
+					
+					echo $prod_name . " -  qty: " . $qty;
+					echo "</br>";
+				}
+				
+				echo '</td>';
+				
+				echo "</tr>";
+				
+				
+			}
+			echo '</table>';
+			
+		}
 		
 		
 		?>
@@ -136,17 +197,39 @@
 <div id="container"> 
 <b> admin functions </b>
 	<div>
-		add product
+		<?php
+		
+			echo "<form name=\"input\" action=\"admin_functions.php\" method=\"POST\">";
+			echo "<input type=\"hidden\" name=\"products\" value=\"true\">";
+			echo "<input type=\"submit\" value=\"view all products\">";
+			echo "</form>";
+			
+			echo "<form name=\"input\" action=\"admin_functions.php\" method=\"POST\">";
+			echo "<input type=\"hidden\" name=\"images\" value=\"true\">";
+			echo "<input type=\"submit\" value=\"view all images\">";
+			echo "</form>";
+			
+			echo "<form name=\"input\" action=\"admin_functions.php\" method=\"POST\">";
+			echo "<input type=\"hidden\" name=\"orders\" value=\"true\">";
+			echo "<input type=\"submit\" value=\"view all orders\">";
+			echo "</form>";
+			
+		?>
 	</div>
 
-	
 	<div>
-		view orders
-	</div>
-	
-	<div>
-		<?php viewProductDetails(); ?>
-		<?php viewAllImages(); ?>
+		<?php
+		if (isset($_POST['products'])){
+			viewProductDetails();
+		}
+		if (isset($_POST['images'])){
+			viewAllImages();
+		}
+		if (isset($_POST['orders'])){
+			viewOrders();
+		}
+		
+		?>
 	</div>
 	
 </div>
