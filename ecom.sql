@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 3.4.9
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2012 at 03:46 PM
+-- Generation Time: Mar 09, 2012 at 08:47 PM
 -- Server version: 5.5.20
--- PHP Version: 5.3.10
+-- PHP Version: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -74,7 +74,7 @@ INSERT INTO `customer` (`customer_id`, `fname`, `sname`, `address`, `email`, `pa
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(8) NOT NULL AUTO_INCREMENT,
   `customer_id` int(8) NOT NULL,
-  `order_date` datetime NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cart_id` int(8) NOT NULL,
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`order_id`),
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `cart_id`, `completed`) VALUES
-(1001, 1001, '0000-00-00 00:00:00', 1001, 0);
+(1004, 1001, '2012-03-09 20:04:45', 1001, 0);
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `supplier_id` int(8) NOT NULL DEFAULT '1',
   PRIMARY KEY (`prod_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=408 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=405 ;
 
 --
 -- Dumping data for table `products`
