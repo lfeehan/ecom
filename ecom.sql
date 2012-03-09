@@ -3,10 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2012 at 08:47 PM
+-- Generation Time: Mar 09, 2012 at 09:53 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -26,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cart`
 --
 
+DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
   `cart_id` int(8) NOT NULL,
   `prod_id` int(8) NOT NULL,
@@ -48,6 +50,7 @@ INSERT INTO `cart` (`cart_id`, `prod_id`, `quantity`) VALUES
 -- Table structure for table `customer`
 --
 
+DROP TABLE IF EXISTS `customer`;
 CREATE TABLE IF NOT EXISTS `customer` (
   `customer_id` int(8) NOT NULL,
   `fname` varchar(45) NOT NULL,
@@ -71,6 +74,7 @@ INSERT INTO `customer` (`customer_id`, `fname`, `sname`, `address`, `email`, `pa
 -- Table structure for table `orders`
 --
 
+DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(8) NOT NULL AUTO_INCREMENT,
   `customer_id` int(8) NOT NULL,
@@ -80,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`order_id`),
   KEY `fk_orders_cart1` (`cart_id`),
   KEY `fk_orders_customer1` (`customer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1002 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1005 ;
 
 --
 -- Dumping data for table `orders`
@@ -95,6 +99,7 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `cart_id`, `compl
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `prod_id` int(8) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
@@ -140,6 +145,7 @@ INSERT INTO `products` (`prod_id`, `name`, `name_long`, `price`, `quantity`, `de
 -- Table structure for table `product_image`
 --
 
+DROP TABLE IF EXISTS `product_image`;
 CREATE TABLE IF NOT EXISTS `product_image` (
   `prod_id` int(8) NOT NULL,
   `image_id` varchar(50) NOT NULL,
@@ -225,6 +231,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `product_image`
   ADD CONSTRAINT `fk_product_image_products1` FOREIGN KEY (`prod_id`) REFERENCES `products` (`prod_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
