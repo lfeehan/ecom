@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2012 at 09:53 PM
+-- Generation Time: Mar 09, 2012 at 09:59 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
@@ -42,7 +42,9 @@ CREATE TABLE IF NOT EXISTS `cart` (
 
 INSERT INTO `cart` (`cart_id`, `prod_id`, `quantity`) VALUES
 (1001, 1, 2),
-(1001, 101, 1);
+(1001, 101, 1),
+(1002, 103, 4),
+(1002, 202, 3);
 
 -- --------------------------------------------------------
 
@@ -84,14 +86,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`order_id`),
   KEY `fk_orders_cart1` (`cart_id`),
   KEY `fk_orders_customer1` (`customer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1005 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1006 ;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `cart_id`, `completed`) VALUES
-(1004, 1001, '2012-03-09 20:04:45', 1001, 0);
+(1004, 1001, '2012-03-09 21:58:33', 1001, 0),
+(1005, 1001, '2012-03-09 21:58:33', 1002, 0);
 
 -- --------------------------------------------------------
 
