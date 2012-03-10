@@ -6,9 +6,9 @@
         echo "<a href=\"products.php?prod_type=".$prod_type."\">".$prod_type. "</a>";
         }
     
-    if ($prod_name != null) {
+    if ($name != null) {
         echo " > ";
-        echo $prod_name;
+        echo $name;
         }
       ?>
 </div> 

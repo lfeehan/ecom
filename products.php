@@ -14,19 +14,23 @@ of that type-->
 		 
 		
 		
-		$all_rows=queryDB("SELECT * FROM products WHERE PROD_TYPE='$prod_type'");
+		$all_rows=queryDB("SELECT * FROM products WHERE type='$prod_type'");
 		while($one_row=mysql_fetch_assoc($all_rows)) {
-		    $prod_id= $one_row['PROD_ID'];
-		    $prod_name=$one_row['PROD_NAME'];
-		    $prod_desc=$one_row['PROD_DESC'];
+		$id= $one_row['prod_id'];
+		$name= $one_row['name'];
+		$name_long=$one_row['name_long'];
+		$price= $one_row['price'];
+		$quantity= $one_row['quantity'];
+		$details= $one_row['details'];
+		$description=$one_row['description'];
     		echo '<div class="product">';
 			#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
-			echo "<a href = \"dynamic_product.php?product=" . $prod_id . "\">" .  $prod_name . "</a>";
-            echo "<br />".$prod_desc;
+			echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
+            echo "<br />".$desc;
            
             
             #get image path for this particular product id
-     		$image_loc = getImage($prod_id);
+     		$image_loc = getImage($id);
      		
      		#output the image in a div class prodthumb
 		    echo '<div class="prodthumb">';
