@@ -7,6 +7,7 @@ of that type-->
 <body>
  <div id="container">  	
   </div>
+  
  <?php $prod_type=$_GET['prod_type'];
   include 'breadcrumb.php';?>
  	
@@ -26,7 +27,7 @@ of that type-->
     		echo '<div class="product">';
 			#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
 			echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
-            echo "<br />".$desc;
+            echo "<br />".$description;
            
             
             #get image path for this particular product id

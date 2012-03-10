@@ -71,10 +71,10 @@ customer_id, fname, sname, address, email, payment_method
 	
 	}
 	
-	$kites_result = queryDB("SELECT * FROM products WHERE type='kite'");
+	$kites_result = queryDB("SELECT * FROM products WHERE type='Kites'");
  	$kites_name = $kites_result['name'];	
  	
- 	$boards_result = queryDB("SELECT*FROM products WHERE type='board'");
+ 	$boards_result = queryDB("SELECT * FROM products WHERE type='Boards'");
  	$boards_name=$boards_result['name'];
 	?>
  		</div>
@@ -108,9 +108,9 @@ customer_id, fname, sname, address, email, payment_method
  		<div id="categories">
      		<div id="kites"> <a href="products.php?prod_type=Kites"><img src="images/categoryImages/kitesurf_kites_button.png"></a></div>
 	        <div id="boards"> <a href="products.php?prod_type=Boards"><img src="images/categoryImages/kiteboards_button.png"> </a></div>
-	        <div id="boards"> <a href="products.php?prod_type=surfboard"><img src="images/categoryImages/kite_surfboards_button.png"> </a></div>
-     		<div id="boards"> <a href="products.php?prod_type=harness"><img src="images/categoryImages/harnesses_button.png"> </a></div>
-     		<div id="accessories"><a href="products.php?prod_type=accessories"><img src="images/categoryImages/accessories_button.png"></a> </div>
+	        <div id="boards"> <a href="products.php?prod_type=Surfboards"><img src="images/categoryImages/kite_surfboards_button.png"> </a></div>
+     		<div id="boards"> <a href="products.php?prod_type=Harnesses"><img src="images/categoryImages/harnesses_button.png"> </a></div>
+     		<div id="accessories"><a href="products.php?prod_type=Accessories"><img src="images/categoryImages/accessories_button.png"></a> </div>
         </div>
  		
 
