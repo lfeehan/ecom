@@ -213,10 +213,14 @@
 			echo "<input type=\"hidden\" name=\"orders\" value=\"true\">";
 			echo "<input type=\"submit\" value=\"view all orders\">";
 			echo "</form>";
+	
+			#insertCart(1002, 201, 2);
 			
 		?>
 	</div>
 
+	
+	
 	<div>
 		<?php
 		if (isset($_POST['products'])){

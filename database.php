@@ -77,4 +77,36 @@
 			
 		return($dstFile);
 	}
+	
+	#query to insert into cart table
+	#if cart_id exists insert prod_id OR if prod_id also exist increment its quantity
+	#OR else insert new entry.
+	function insertCart($cart_id, $prod_id, $quantity){
+		$query = queryDB("select * from cart where cart_id = " . $cart_id);
+		$fetch = mysql_fetch_assoc($query);
+		$existing_cart = $fetch['cart_id'];
+		
+		$found = false;
+		
+		if(isSet($cart_id)){
+			while($fetch = mysql_fetch_assoc($query)){
+				$existing_prod = $fetch['prod_id'];
+				if ($prod_id == $existing_prod){
+					queryDB("UPDATE cart SET quantity = quantity+1 WHERE (cart_id = " . $cart_id . " AND prod_id = " . $prod_id . ");");
+					$found = true;
+				}
+			}
+			if(!$found){
+				#cart exists but product entry does not
+				queryDB("INSERT INTO cart VALUES (" . $cart_id . "," . $prod_id . "," . $quantity . ")");
+			}
+		}else{
+			#if no cart_id existing
+			queryDB("INSERT into cart (cart_id, prod_id, quantity) VALUES ($cart_id, $prod_id, $quantity)");	
+		}
+	}
+	
+	
+	
+	
 ?>
