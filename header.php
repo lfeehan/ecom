@@ -10,7 +10,9 @@
 <!--Header file contains the header of the site -->
 
 <div id="container">
-	<div id="header"><img src="images/header.jpg">
-	shopping cart here?
+	<div id="header"><img src="images/header.png">
+	<div style="float:right; padding-top:30px; padding-right: 50px;">
+		SHOPPING CART
+	</div>
 
  </div>

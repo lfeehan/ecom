@@ -3,7 +3,7 @@
 
 <body>
 
-<div id="container"> 
+<div id="main-content"> 
 <?php include 'breadcrumb.php';?>	
 	
 <div id="fullpackage">
@@ -94,9 +94,9 @@ customer_id, fname, sname, address, email, payment_method
  				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
  				echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
  				
- 				$image_loc = getImage($id);
- 				
-				echo "<img src =\"" . $image_loc . "\">"; 
+ 				$image_big = getImage($id);
+ 				$image_resized = resizeImage($image_big, 250,250);
+				echo "<img src =\"" . $image_resized . "\">"; 
 				echo "</div>";
  			}
  		?>	

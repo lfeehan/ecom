@@ -51,7 +51,7 @@
 		if ($w / $h > $ratio){
 			$new_width = $h * $ratio;
 			$new_height = $h;
-		}else{
+		}else{c
 			$new_height = $w / $ratio;
 			$new_width = $w;
 		}
