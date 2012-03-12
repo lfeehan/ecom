@@ -79,12 +79,30 @@ customer_id, fname, sname, address, email, payment_method
 	?>
  		</div>
  		<div id="newproducts">
- 		<h1>New Arrivals!</h1>
- 		
- 		<?php
-			$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
+ 		<?php 
+		//new arrivals vs recently viewed
+			$statement = "Recently Viewed";
 			
-		
+			if (!isset($_COOKIE['view']))
+			{
+				$statement = "New Products!";
+			}
+			
+			echo $statement;	
+			//displaying newprods or recently viewed based on findinf of cookie
+						
+			if (isset($_COOKIE['view']))
+			{
+				$var1 = $_COOKIE['view'];	
+				$newProds = queryDB("SELECT * FROM products WHERE prod_id='$var1' ORDER BY date_added DESC LIMIT 2");
+			}
+
+			if (!isset($_COOKIE['view']))
+			{
+				$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
+			}
+				
+					
  			while ($one_row = mysql_fetch_assoc($newProds)) { 
  				$id= $one_row['prod_id'];
  				$name= $one_row['name'];

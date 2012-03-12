@@ -1,7 +1,7 @@
 <?php include 'header.php';?>
 <?php include 'database.php';?>
 
-<body>
+
 
  	<! 
 SQL Tables 	
@@ -28,8 +28,16 @@ customer_id, fname, sname, address, email, payment_method
 		$url_id = $_GET['product'];
 		}
 		else{
-		$url_id = 50;
+		$url_id = 1;
 		}		
+		
+		#this makes a cookie to diplay on homepage as recently viewed
+		if (isset ($_GET['product']))
+			{
+			$view_id = $_GET['product'];
+			setcookie('view', $view_id, time() + (60*60*24*2));
+			}
+			else{}
  					
 		#sql query
 		
@@ -57,16 +65,11 @@ customer_id, fname, sname, address, email, payment_method
 		}
 	
 	?> 
- 
- <div id="container">  	
- 
-  <?php include 'breadcrumb.php';?>  
- <div id="productText">
- 
- 	
- 	
- 	
- 	
+<body>
+<div id="container"> 
+<?php include 'breadcrumb.php';?>	
+  
+ <div id="productText"> 	
 	 
     <div id="leftdiv">
     				<?php echo "<p>";
@@ -80,7 +83,7 @@ customer_id, fname, sname, address, email, payment_method
     	<div class="prodinfo">
         		<?php 
 				echo "<p>";
-				echo "Product Name: <b>" . $name;
+				echo "Name: <b>" . $name;
 				echo "</b></p>";?>
         </div>
         <div class="prodinfo">
@@ -92,13 +95,13 @@ customer_id, fname, sname, address, email, payment_method
         <div class="prodinfo">
       			<?php 
 				echo "<p>";
-				echo "In Stock: <b>" . $quantity;
+				echo "In stock: <b>" . $quantity;
 				echo "</b></p>";?>
         </div>
         <div class="prodinfo">
         		<?php 
 				echo "<p>";
-				echo "About: <b>" . $details;
+				echo "Details: <b>" . $details;
 				echo "</b></p>";?>
         </div>
     </div>
@@ -111,4 +114,4 @@ customer_id, fname, sname, address, email, payment_method
 </div> <!-- container close div -->
 <?php include 'footer.php';?>
 <? mysql_close($db_handle); ?>
-</html>
+</html
