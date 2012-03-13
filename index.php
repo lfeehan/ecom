@@ -95,15 +95,16 @@ customer_id, fname, sname, address, email, payment_method
 			{
 				$var1 = $_COOKIE['view'];	
 				$newProds = queryDB("SELECT * FROM products WHERE prod_id='$var1' ORDER BY date_added DESC LIMIT 2");
+				$newProds2 = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
 			}
 
 			if (!isset($_COOKIE['view']))
 			{
 				$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
-			}
-				
+			}				
 					
- 			while ($one_row = mysql_fetch_assoc($newProds)) { 
+ 			while ($one_row = mysql_fetch_assoc($newProds)) 
+				{ 
  				$id= $one_row['prod_id'];
  				$name= $one_row['name'];
  				
@@ -116,6 +117,25 @@ customer_id, fname, sname, address, email, payment_method
  				$image_resized = resizeImage($image_big, 250,250);
 				echo "<img src =\"" . $image_resized . "\">"; 
 				echo "</div>";
+				}
+			if (isset($newProds2))
+			{
+			echo "New Products!";
+			while ($one_row = mysql_fetch_assoc($newProds2))
+				{ 
+ 				$id= $one_row['prod_id'];
+ 				$name= $one_row['name'];
+ 				
+ 				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
+ 				
+ 				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
+ 				echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
+ 				
+ 				$image_big = getImage($id);
+ 				$image_resized = resizeImage($image_big, 250,250);
+				echo "<img src =\"" . $image_resized . "\">"; 
+				echo "</div>";
+				}
  			}
  		?>	
  		
