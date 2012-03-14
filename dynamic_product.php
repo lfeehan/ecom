@@ -81,33 +81,43 @@ customer_id, fname, sname, address, email, payment_method
     </div>
     <div id="rigthdiv">
     	<div class="prodinfo">
+			<div class = "textformatting">
         		<?php 
 				echo "<p>";
-				echo "Name: <b>" . $name;
-				echo "</b></p>";?>
+				echo "Name: " . $name;
+				echo "</p>";?>
+			</div>
         </div>
+		
         <div class="prodinfo">
+			<div class = "textformatting">
        			<?php 
 				echo "<p>";
-				echo "Price: <b>" . $price;
-				echo "</b></p>";?>
+				echo "Price: " . $price;
+				echo "</p>";?>
+			</div>
         </div>
         <div class="prodinfo">
+			<div class = "textformatting">
       			<?php 
 				echo "<p>";
-				echo "In stock: <b>" . $quantity;
-				echo "</b></p>";?>
+				echo "In stock: " . $quantity;
+				echo "</p>";?>
+			</div>
         </div>
-        <div class="prodinfo">
+        <div id="details">
+			<div class = "textformatting">
         		<?php 
 				echo "<p>";
-				echo "Details: <b>" . $details;
-				echo "</b></p>";?>
+				echo "Details: " . $details;
+				echo "</p>";?>
+			</div>
         </div>
     </div>
     <div id="description">
-    <?php echo $description; ?>
-    Let's go sit... out on the decking. Description
+		<div class = "textformatting">
+			<?php echo $description; ?>
+		</div>
     </div>
 
  </div>	<!-- productText close div -->
