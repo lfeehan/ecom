@@ -43,37 +43,7 @@
 	function resizeImage($image_source, $w, $h){
 		
 		
-		list($width, $height, $type, ) = getimagesize($image_source);
-		
-		
-		$ratio = $width / $height;
-		
-		if ($w / $h > $ratio){
-			$new_width = $h * $ratio;
-			$new_height = $h;
-		}else{
-			$new_height = $w / $ratio;
-			$new_width = $w;
-		}
-
-		
 		$dstFile = 'images/thumbnails/tn_' . basename($image_source);
-		
-		
-		switch($type){
-		case 2:
-			$dstHandle = imagecreatetruecolor($new_width, $new_height);
-			$srcHandle = imagecreatefromjpeg($image_source);
-			imagecopyresampled($dstHandle, $srcHandle, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-			imagejpeg($dstHandle, $dstFile, 80);
-			break;
-		case 3:
-			$dstHandle = imagecreatetruecolor($new_width, $new_height);
-			$srcHandle = imagecreatefrompng($image_source);
-			imagecopyresampled($dstHandle, $srcHandle, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-			imagepng($dstHandle, $dstFile, 9);
-			break;
-		}
 			
 		return($dstFile);
 	}
