@@ -81,14 +81,17 @@ customer_id, fname, sname, address, email, payment_method
  		<div id="newproducts">
  		<?php 
 		//new arrivals vs recently viewed
-			$statement = "Recently Viewed";
-			
+						
 			if (!isset($_COOKIE['view']))
 			{
-				$statement = "New Products!";
+				echo "New Products!";
+			}
+			else
+			{
+				echo "Recently Viewed";
 			}
 			
-			echo $statement;	
+			
 			//displaying newprods or recently viewed based on findinf of cookie
 						
 			if (isset($_COOKIE['view']))
