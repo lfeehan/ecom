@@ -99,18 +99,20 @@ body {
 
 #fullpackage {
 	margin-left:120px;
-	height:400px;
+	height:550px;
 	width:665px;
 	background-color: darkgrey;
 	float:left;
+	overflow:hidden;
 	}	
 #newproducts {
 	margin-left: 60px;
 	margin-right:55px;
-	height:400px;
+	height:550px;
 	width:300px;
 	background-color: lightblue;
 	float:left;	
+	overflow:hidden;
 	
 	}
 #categories {
