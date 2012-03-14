@@ -1,5 +1,16 @@
+<?php
+    session_start();
+?>
+
+<?php 
+    if(isset($_SESSION['cart'])){
+        // do nothing
+    }else{
+        $_SESSION['cart'] = "";
+    }
+?>
+
 <?php include 'header.php';?>
-<?php include 'database.php';?>
 
 <body>
 
@@ -81,17 +92,14 @@ customer_id, fname, sname, address, email, payment_method
  		<div id="newproducts">
  		<?php 
 		//new arrivals vs recently viewed
-						
+			$statement = "Recently Viewed";
+			
 			if (!isset($_COOKIE['view']))
 			{
-				echo "New Products!";
-			}
-			else
-			{
-				echo "Recently Viewed";
+				$statement = "New Products!";
 			}
 			
-			
+			echo $statement;	
 			//displaying newprods or recently viewed based on findinf of cookie
 						
 			if (isset($_COOKIE['view']))
@@ -111,7 +119,7 @@ customer_id, fname, sname, address, email, payment_method
  				$id= $one_row['prod_id'];
  				$name= $one_row['name'];
  				
- 				echo "<div style=\"float: top; padding: 10px; width:300px;\">";
+ 				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
  				
  				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
  				echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
@@ -129,7 +137,7 @@ customer_id, fname, sname, address, email, payment_method
  				$id= $one_row['prod_id'];
  				$name= $one_row['name'];
  				
- 				echo "<div style=\"float: top; padding: 10px; width:300px;\">";
+ 				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
  				
  				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
  				echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";

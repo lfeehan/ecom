@@ -1,7 +1,8 @@
+<?php
+    session_start();
+?>
+
 <?php include 'header.php';?>
-<?php include 'database.php';?>
-
-
 
  	<! 
 SQL Tables 	
@@ -81,43 +82,43 @@ customer_id, fname, sname, address, email, payment_method
     </div>
     <div id="rigthdiv">
     	<div class="prodinfo">
-			<div class = "textformatting">
         		<?php 
 				echo "<p>";
-				echo "Name: " . $name;
-				echo "</p>";?>
-			</div>
+				echo "Name: <b>" . $name;
+				echo "</b></p>";?>
         </div>
-		
         <div class="prodinfo">
-			<div class = "textformatting">
        			<?php 
 				echo "<p>";
-				echo "Price: " . $price;
-				echo "</p>";?>
-			</div>
+				echo "Price: <b>" . $price;
+				echo "</b></p>";?>
         </div>
         <div class="prodinfo">
-			<div class = "textformatting">
       			<?php 
 				echo "<p>";
-				echo "In stock: " . $quantity;
-				echo "</p>";?>
-			</div>
+				echo "In stock: <b>" . $quantity;
+				echo "</b></p>";?>
         </div>
-        <div id="details">
-			<div class = "textformatting">
+        <div class="prodinfo">
         		<?php 
 				echo "<p>";
-				echo "Details: " . $details;
-				echo "</p>";?>
-			</div>
+				echo "Details: <b>" . $details;
+				echo "</b></p>";?>
+        </div>
+        <div class="addtocart">
+        		<?php 
+			$prod_id = $_GET['product'];
+                        # echo $prod_id;
+                        ?>
+            <form action="shopping_cart.php" method="post" >
+                <input type="submit" name="addtocart" value="Add to Cart" onclick="<?php addToCart($prod_id);?>">
+            <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="<?php # insertCart(1001, $prod_id, 1);?>"> -->
+          </form>
         </div>
     </div>
     <div id="description">
-		<div class = "textformatting">
-			<?php echo $description; ?>
-		</div>
+    <?php echo $description; ?>
+    Let's go sit... out on the decking. Description
     </div>
 
  </div>	<!-- productText close div -->

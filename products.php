@@ -2,8 +2,12 @@
 query and a div of the product class is displayed for each result for product
 of that type-->
 
+<?php
+    session_start();
+?>
+
 <?php include 'header.php';?>
-<?php include 'database.php';?>
+
 <body>
  <div id="container">  	
   </div>
@@ -27,7 +31,7 @@ of that type-->
     		echo '<div class="product">';
 			#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
 			echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
-         
+            echo "<br />".$description;
            
             
             #get image path for this particular product id
