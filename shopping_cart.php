@@ -1,19 +1,36 @@
 <?php
     session_start();
 ?>
+<?php include 'database.php';?>
+
+	<?php
+	#had to take the include-database bit out of the header as this needs to be done before the header is called
+	#ive updated this across all files...
+	#add to cart function taken away from dynamic_product and placed here.
+	#this is called on opening the page IF the incoming page passes a product ID
+	if (isset($_POST['add'])){
+		$prod_id = $_POST['product'];
+		addToCart($prod_id);
+	}
+	?>
+
+
+
 
 <?php include 'header.php';?>
 
 
 <body>
 
-<div id="container"> 
+<div id="main-content"> 
 <?php include 'breadcrumb.php';?>
 
 
         <?php
         # $_GET takes item_id passed to URL from "Add to Cart" button. 
             $item_id = $_SESSION['cart'];
+            
+
             
             $result = queryDB("SELECT name, details, p.quantity AS stock, price, c.quantity AS quantity
                 FROM products p, cart c
