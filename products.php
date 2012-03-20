@@ -25,21 +25,42 @@ of that type-->
 		$quantity= $one_row['quantity'];
 		$details= $one_row['details'];
 		$description=$one_row['description'];
-    		echo '<div class="product">';
-			#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
-			echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
-            echo "<br />".$description;
-           
-            
-            #get image path for this particular product id
-     		$image_loc = getImage($id);
-     		
-     		#output the image in a div class prodthumb
-		    echo '<div class="prodthumb">';
-		    echo "<img src =\"" . $image_loc . "\">";
-		    echo "</div>";
-		    echo "</div>";
-            }
+    	echo '<div class="product">';
+		#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
+		
+		#echos Name of product as a link	
+		echo '<div class="productsPageProductName">';
+		echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
+		echo '</div>';
+      
+        #Echos stock status
+        echo '<div class="productsPageStockStatus">';
+        if ($quantity ==0) {
+        echo "Out of Stock";
+        }
+        else echo "In Stock";
+        echo '</div>';
+         
+        #Echos product price
+        echo '<div class="productsPageProductPrice">';
+        echo '&euro;'.$price;
+        echo '</div>';   
+        
+        #Echos product details 
+        # Need to clean up product details in DB and decide about this
+#        echo '<div class="productsPageProductDetails">';
+#        echo $details;
+#        echo '</div>'; 
+                    
+        #get image path for this particular product id
+ 		$image_loc = getImage($id);
+ 		$image_resized = resizeImage($image_loc, 250,250);
+ 		#output the image in a div class prodthumb
+	    echo '<div class="prodthumb">';
+	    echo "<img src =\"" . $image_resized . "\">";
+	    echo "</div>";
+	    echo "</div>";
+        }
  
     ?> 
 	

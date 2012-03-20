@@ -19,16 +19,7 @@
 	
 <div id="fullpackage">
  	
- 	<?php
-
- 	
-	
-	$kites_result = queryDB("SELECT * FROM products WHERE type='Kites'");
- 	$kites_name = $kites_result['name'];	
- 	
- 	$boards_result = queryDB("SELECT * FROM products WHERE type='Boards'");
- 	$boards_name=$boards_result['name'];
-	?>
+ 	<img src="images/pantherpackage.jpg" />
  		</div>
  	
  		

@@ -116,19 +116,33 @@ body {
 
 #fullpackage {
 	margin-left:120px;
-	height:550px;
-	width:665px;
-	background-color: darkgrey;
+	width:655px;
+	height:542px;
 	float:left;
+	border: 3px solid #a29f9b;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 10px #1b1c25;
+	-webkit-box-shadow: 0 0 10px #1b1c25;
+	box-shadow: 0 0 10px #1b1c25;
+	
 	}	
 	
 #newproducts {
 	margin-left: 60px;
 	margin-right:55px;
 	height:550px;
-	width:300px;
+	width:290px;
 	background-color: lightblue;
 	float:left;	
+	border: 3px solid #a29f9b;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 10px #1b1c25;
+	-webkit-box-shadow: 0 0 10px #1b1c25;
+	box-shadow: 0 0 10px #1b1c25;
 	
 	}
 #categories {
@@ -189,7 +203,7 @@ body {
     }
  
 .product {
-    height:160px;
+    height:210px;
     width:100%;
     border-top-style:solid;
     background-color:white;
@@ -200,3 +214,31 @@ body {
     float:right;
     margin-right:20px;
     }
+    
+.productsPageProductName {
+    float:left;
+    margin-top:75px;
+    margin-left:20px;
+    margin-right:100px;
+    width:200px;
+    }
+
+.productsPageStockStatus {
+    float:left;
+    margin-top:75px;
+    margin-right:100px;
+    width:100px;
+    }   
+
+.productsPageProductPrice {
+    float:left;
+    margin-top:75px;
+    margin-right:100px;
+    width:100px;
+    }  
+.productsPageProductDetails {
+    float:left;
+    margin-top:75px;
+    margin-right:100px;
+    width:200px;
+    }    
