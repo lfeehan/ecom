@@ -80,6 +80,7 @@ customer_id, fname, sname, address, email, payment_method
     </div>
     <div id="middiv">
     </div>
+  <a href="index.php">Home</a>
     <div id="rigthdiv">
     	<div class="prodinfo">
         		<?php 
