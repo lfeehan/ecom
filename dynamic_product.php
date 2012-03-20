@@ -1,7 +1,7 @@
 <?php
     session_start();
 ?>
-
+<?php include 'database.php';?>
 <?php include 'header.php';?>
 
  	<! 
@@ -67,7 +67,7 @@ customer_id, fname, sname, address, email, payment_method
 	
 	?> 
 <body>
-<div id="container"> 
+<div id="main-content"> 
 <?php include 'breadcrumb.php';?>	
   
  <div id="productText"> 	
@@ -112,9 +112,18 @@ customer_id, fname, sname, address, email, payment_method
                         # echo $prod_id;
                         ?>
             <form action="shopping_cart.php" method="post" >
-                <input type="submit" name="addtocart" value="Add to Cart" onclick="<?php addToCart($prod_id);?>">
-            <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="<?php # insertCart(1001, $prod_id, 1);?>"> -->
+            
+            		<!-- hidden fields add and product are passed to cart.php as a POST rather than onclick -->
+			<input type="hidden" name="add" value="true">
+			<input type="hidden" name="product" value="<?php echo $prod_id ?>">
+			<input type="submit" value="add">
+	
+            
+            
+                <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="">-->
+
           </form>
+          
         </div>
     </div>
     <div id="description">

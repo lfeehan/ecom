@@ -1,7 +1,7 @@
 <?php
     session_start();
 ?>
-
+<?php include 'database.php';?>
 <?php 
     if(isset($_SESSION['cart'])){
         // do nothing
@@ -18,69 +18,10 @@
 <?php include 'breadcrumb.php';?>	
 	
 <div id="fullpackage">
- 	<! 
-SQL Tables 	
-products
-prod_id, name, name_long, price, quantity, details, description, type, date_added, supplier_id
-
-product_image
-prod_id, image_id
-
-orders
-order_id, customer_id, order_date, cart_id, completed
-
-cart
-cart_id, prod_id, quantity
-
-customer
-customer_id, fname, sname, address, email, payment_method
- 	 ->
+ 	
  	<?php
 
-	#revised to use abstract function
-	$all_rows = queryDB("SELECT * FROM products");
-	
-	#because select * returns multiple rows we must cycle through it.
-	#no need for this if select statement returns one row only.
-	while ($one_row = mysql_fetch_assoc($all_rows)) { 
-		$id= $one_row['prod_id'];
-		$name= $one_row['name'];
-		$name_long=$one_row['name_long'];
-		$price= $one_row['price'];
-		$quantity= $one_row['quantity'];
-		$details= $one_row['details'];
-		$description=$one_row['description'];
-		
-		
-		echo "<div style=\"float: left; padding: 10px; width:200px;\">";
-		echo "<p>";
-		echo "Product Name: <b>" . $name;
- 		echo "</b></p>";
-		echo "<p>";
-		echo "Price: <b>" . $price;
- 		echo "</b></p>";	
-		echo "<p>";
-		echo "In Stock: <b>" . $quantity;
- 		echo "</b></p>";
- 		echo "<p>";
-		echo "About: <b>" . $details;
- 		echo "</b></p>";
- 	 		
- 		#get image path for this particular product id
- 		$image_loc = getImage($id);
- 		#use that image path to resize to 300,300
- 		$thumbnail_image = resizeImage($image_loc, 50, 50);
- 		
- 		#output the resized image, could also output original here
-		echo "<p>";
-		echo "<img src =\"" . $thumbnail_image . "\">";
-		echo "</p>";
-		
-
  	
-	echo "</div>";
-	
-	}
 	
 	$kites_result = queryDB("SELECT * FROM products WHERE type='Kites'");
  	$kites_name = $kites_result['name'];	
@@ -89,6 +30,9 @@ customer_id, fname, sname, address, email, payment_method
  	$boards_name=$boards_result['name'];
 	?>
  		</div>
+ 	
+ 		
+ 		
  		<div id="newproducts">
  		<?php 
 		//new arrivals vs recently viewed
@@ -105,13 +49,13 @@ customer_id, fname, sname, address, email, payment_method
 			if (isset($_COOKIE['view']))
 			{
 				$var1 = $_COOKIE['view'];	
-				$newProds = queryDB("SELECT * FROM products WHERE prod_id='$var1' ORDER BY date_added DESC LIMIT 2");
-				$newProds2 = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
+				$newProds = queryDB("SELECT * FROM products WHERE prod_id='$var1' ORDER BY date_added DESC LIMIT 1");
+				$newProds2 = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 1");
 			}
 
 			if (!isset($_COOKIE['view']))
 			{
-				$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
+				$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 1");
 			}				
 					
  			while ($one_row = mysql_fetch_assoc($newProds)) 

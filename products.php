@@ -5,20 +5,17 @@ of that type-->
 <?php
     session_start();
 ?>
-
+<?php include 'database.php';?>
 <?php include 'header.php';?>
 
 <body>
- <div id="container">  	
-  </div>
+ <div id="main-content">  	
+
   
- <?php $prod_type=$_GET['prod_type'];
-  include 'breadcrumb.php';?>
- 	
-	<?php
+ <?php
+ 		$prod_type=$_GET['prod_type'];
+ 		include 'breadcrumb.php';
 		 
-		
-		
 		$all_rows=queryDB("SELECT * FROM products WHERE type='$prod_type'");
 		while($one_row=mysql_fetch_assoc($all_rows)) {
 		$id= $one_row['prod_id'];
@@ -46,7 +43,7 @@ of that type-->
  
     ?> 
 	
-	</div>
+	
 	
 </div>
 		
