@@ -66,6 +66,8 @@ customer_id, fname, sname, address, email, payment_method
 		}
 	
 	?> 
+<link href="ecom.css" rel="stylesheet" type="text/css" />
+<link href="ecom.css" rel="stylesheet" type="text/css" />
 <body>
 <div id="main-content"> 
 <?php include 'breadcrumb.php';?>	
@@ -82,30 +84,35 @@ customer_id, fname, sname, address, email, payment_method
     </div>
     <div id="rigthdiv">
     	<div class="prodinfo">
+        		<div class="textformatting">
+				<?php 
+				echo "<b>Name: </b>" . $name;
+				?>				
+                </div>
+        </div>
+        <div class="prodinfo">
+       			<div class="textformatting">
+				<?php 				
+				echo "<b>Price: </b>" . $price;
+				?>
+                </div>
+        </div>
+        <div class="prodinfo">
+      			<div class="textformatting">
+				<?php 
+				echo "<b>In stock: </b>" . $quantity;
+				?>
+				</div>
+        </div>
+        <div class="detailsinfo">
+        		<div class="textformatting">
         		<?php 
-				echo "<p>";
-				echo "Name: <b>" . $name;
-				echo "</b></p>";?>
+				echo "<b>Details: </b>" . $details;
+				?>
+                </div>
         </div>
-        <div class="prodinfo">
-       			<?php 
-				echo "<p>";
-				echo "Price: <b>" . $price;
-				echo "</b></p>";?>
-        </div>
-        <div class="prodinfo">
-      			<?php 
-				echo "<p>";
-				echo "In stock: <b>" . $quantity;
-				echo "</b></p>";?>
-        </div>
-        <div class="prodinfo">
-        		<?php 
-				echo "<p>";
-				echo "Details: <b>" . $details;
-				echo "</b></p>";?>
-        </div>
-        <div class="addtocart">
+		        
+			<div class="addtocart">
         		<?php 
 			$prod_id = $_GET['product'];
                         # echo $prod_id;
@@ -121,12 +128,15 @@ customer_id, fname, sname, address, email, payment_method
             
                 <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="">-->
 
-          </form>
+			</form>
           
-        </div>
+			</div>
+		
     </div>
     <div id="description">
+    	<div class="textformatting">
     <?php echo $description; ?>
+    	</div>
     </div>
 
  </div>	<!-- productText close div -->

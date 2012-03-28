@@ -64,17 +64,35 @@ body {
 .prodinfo{
 	float:left;
 	width:90%;
-	height:17%;
+	height:10%;
 	margin-left:5%;
 	margin-top:4%;
 	background-color:#FBFBFB;
 }
 
+.detailsinfo{
+	float:left;
+	width:90%;
+	height:35%;
+	margin-left:5%;
+	margin-top:4%;
+	background-color:#FBFBFB;
+}
+
+.addtocart{
+	float:left;
+	width:90%;
+	height:6%;
+	margin-left:5%;
+	margin-top:7%;
+	background-color:#FBFBFB;
+}
+
 .textformatting{
-	padding-left:4%;
+	
 	text-align:left;
 	font-family:Verdana, Geneva, sans-serif;
-	font-size:12px;
+	font-size:14px;
 }
 
 #details{
@@ -90,9 +108,9 @@ body {
 	float:left;
 	width:95%;
 	margin-right:2%;
-	margin-top:10px;
+	margin-top:15px;
 	margin-bottom:10px;
-	height:37%;
+	height:33%;
 	background-color:#FBFBFB;
 }	
 	
@@ -201,6 +219,10 @@ body {
     width:250px;
     float:right;
     }
+	
+
+
+	
  
 .product {
     height:210px;
