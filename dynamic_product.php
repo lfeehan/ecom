@@ -105,7 +105,7 @@ customer_id, fname, sname, address, email, payment_method
 				echo "Details: <b>" . $details;
 				echo "</b></p>";?>
         </div>
-        <div class="addtocart">
+        <div class="prodinfo">
         		<?php 
 			$prod_id = $_GET['product'];
                         # echo $prod_id;
@@ -115,7 +115,7 @@ customer_id, fname, sname, address, email, payment_method
             		<!-- hidden fields add and product are passed to cart.php as a POST rather than onclick -->
 			<input type="hidden" name="add" value="true">
 			<input type="hidden" name="product" value="<?php echo $prod_id ?>">
-			<input type="submit" value="add">
+			<input type="submit" value="Add To Cart">
 	
             
             

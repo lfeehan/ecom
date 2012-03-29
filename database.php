@@ -147,5 +147,13 @@
             }
         }	
 	
+        #this function updates the db with the value entered in the quantity textbox in shopping_cart
+        
+        function updateCartQuant($quantity, $prod_id){
+            $update_query = "UPDATE cart SET quantity = {$quantity} 
+            WHERE cart_id = '{$_SESSION['cart']}' AND prod_id = '{$prod_id}' ";
+            $result3 = mysql_query($update_query);
+            return $quantity;
+        }
 	
 ?>
