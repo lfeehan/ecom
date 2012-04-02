@@ -114,16 +114,16 @@
                     
 
           }  
+          ?> 
+          <div id="container">
           
-          echo "<div id=\"container\">";
-                echo "<div id=\"item-total\">";
-                            
-                            echo "<p>Cart Total: {$cart_total}<br/>";
-                echo "</div>";
-          echo "</div>";
-
- 	?>
-    
+          
+            <div id="item-total"><?php   echo "<p>Cart Total: {$cart_total}<br/>"; ?>
+            <form name="buy" action="form.php" method="post" >
+                <input type="submit" value="Buy">
+            </form>
+          </div>
+         </div>
     
     
  		
