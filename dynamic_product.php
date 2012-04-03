@@ -104,7 +104,7 @@ customer_id, fname, sname, address, email, payment_method
 				?>
 				</div>
         </div>
-        <div class="detailsinfo">
+        <div id="details">
         		<div class="textformatting">
         		<?php 
 				echo "<b>Details: </b>" . $details;

@@ -21,36 +21,17 @@ function mysql_prep( $value )
 						$value = addslashes( $value );
 					}
 			}
-		return value;
+		return $value;
 	}
+	
+	$fname= mysql_prep( $_POST['firstname'] );
+	$sname= mysql_prep( $_POST['lastname'] );;
+	$add= mysql_prep( $_POST['address'] );;
+	$email= mysql_prep( $_POST['email'] );;
+	$payment_method= mysql_prep( $_POST['pay'] );;
 ?>
+	
 <?php
-	//checks to see if values are set and not null, returns to form page if error detected
-	$errors = array();
-	$required_fields = array('id', 'firstname', 'lastname', 'address', 'email', 'pay');
-	
-	foreach($required_fields as $fieldname)
-	{
-	if (!isset($_POST[$fieldname]) || empty($_POST[$fieldname]))
-		{
-			$errors[] = $fieldname;
-			header("Location: form.php");
-			exit;
-		}
-	}
-	
-	$fields_length = array('id', 'firstname', 'lastname', 'address', 'email', 'pay' => 30);
-	foreach($fields_length as $fieldname => $maxlength)
-	{
-	if (strlen(trim(mysql_prep($_POST[$fieldname]))) > $maxlength)
-		{
-			$errors[] = $fieldname;
-			header("Location: form.php");
-			exit;
-		}
-	}
-	
-
 
 
 //inserts into db, should eventually redirect to overview page.
@@ -58,7 +39,7 @@ mysql_select_db($db_found);
 
 $sql="INSERT INTO customer (customer_id, fname, sname, address, email, payment_method)
 VALUES
-('$_POST[id]','$_POST[firstname]','$_POST[lastname]','$_POST[address]','$_POST[email]','$_POST[pay]')";
+('$_POST[id]','$fname','$sname','$add','$email','$payment_method')";
 
 if (!mysql_query($sql,$db_handle))
   {
@@ -68,7 +49,6 @@ echo "1 record added";
 
 mysql_close($db_handle);
 ?> 
-
 
 
 

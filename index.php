@@ -46,7 +46,7 @@
 
 			if (!isset($_COOKIE['view']))
 			{
-				$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 1");
+				$newProds = queryDB("SELECT * FROM products ORDER BY date_added DESC LIMIT 2");
 			}				
 					
  			while ($one_row = mysql_fetch_assoc($newProds)) 
