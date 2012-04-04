@@ -96,18 +96,6 @@
 
 </script>
 
-<script type="text/javascript" >
-    function val()
-    {
-        var fn=document.getElementById("firstname").value;
-        var sn=document.getElementById("lastname").value;
-        var addr=document.getElementById("address").value;
-        var email=document.getElementById("email").value;
-        alert(fn+sn+addr+email);
-    }
-
-</script>
-
 
 <?php include 'header.php';?>
 
@@ -117,7 +105,7 @@
 <?php include 'breadcrumb.php';?>
 
 	<div class="textformatting">
-    <form  name="customer" action="create_record.php"  method="post" >
+    <form  name="customer" action="create_record.php"  method="post" onsubmit="return validateForm()" >
 		<div id="formContainer">
         
         <div class="formBox">
