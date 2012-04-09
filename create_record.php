@@ -2,7 +2,7 @@
 <?php
 function mysql_prep( $value )
 	{	
-	//not in use at the moment, meant to check if sql safe
+	
 		$magic_quotes_active = get_magic_quotes_gpc();
 		$new_enough_php = function_exists("mysql_real_escape_string");
 		
@@ -46,6 +46,7 @@ if (!mysql_query($sql,$db_handle))
   die('Error: ' . mysql_error());
   }
 echo "1 record added";
+header("Location: index.php");
 
 mysql_close($db_handle);
 ?> 

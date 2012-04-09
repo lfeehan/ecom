@@ -3,6 +3,7 @@
 ?>
 <?php include 'database.php';?>
 
+
 <?php 
     if(isset($_SESSION['cart'])){
         // do nothing
@@ -23,7 +24,7 @@
            //Check each input
                if(isAlphabet(fn, "Letters Only in Name"))
                {
-                    if(isAlphabet(sn, "Letters Only in Name"))
+                    if(!= isAlphabet(sn, "Letters Only in Name"))
                     {
                         if(isAlphanumeric(addr, "Letters and Numbers Only in Addresss"))
                         {
@@ -106,7 +107,7 @@
 
 	<div class="textformatting">
     <form  name="customer" action="create_record.php"  method="post" onsubmit="return validateForm()" >
-		<div id="formContainer">
+		<div class="formContainer">
         
         <div class="formBox">
         Please enter your details so we can process your order. Thank you.(Basic form,little to no validation at the moment. Sends to create_record.php)

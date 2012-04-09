@@ -83,6 +83,30 @@ customer_id, fname, sname, address, email, payment_method
     <div id="middiv">
     </div>
     <div id="rigthdiv">
+		<div class="prodinfo">
+		
+        		<?php 
+			$prod_id = $_GET['product'];
+                        # echo $prod_id;
+                        ?>
+            <form action="shopping_cart.php" method="post" >
+            
+            		<!-- hidden fields add and product are passed to cart.php as a POST rather than onclick -->
+			<input type="hidden" name="add" value="true">
+			<input type="hidden" name="product" value="<?php echo $prod_id ?>">
+			<input type="submit" value="add">
+	
+            
+            
+                <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="">-->
+
+			</form>
+          
+			
+
+		
+		</div>
+	
     	<div class="prodinfo">
         		<div class="textformatting">
 				<?php 
@@ -110,27 +134,8 @@ customer_id, fname, sname, address, email, payment_method
 				echo "<b>Details: </b>" . $details;
 				?>
                 </div>
-        </div>
-		        
-			<div class="addtocart">
-        		<?php 
-			$prod_id = $_GET['product'];
-                        # echo $prod_id;
-                        ?>
-            <form action="shopping_cart.php" method="post" >
-            
-            		<!-- hidden fields add and product are passed to cart.php as a POST rather than onclick -->
-			<input type="hidden" name="add" value="true">
-			<input type="hidden" name="product" value="<?php echo $prod_id ?>">
-			<input type="submit" value="add">
-	
-            
-            
-                <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="">-->
-
-			</form>
-          
-			</div>
+	</div>
+        
 		
     </div>
     <div id="description">
