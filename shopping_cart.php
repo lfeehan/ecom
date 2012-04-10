@@ -93,26 +93,18 @@
               # This happens because on refresh it tests the if (isset($_POST['update']) statement
               # which is true for every product container in the cart.
                    
-                    echo "<form name='upd' action='shopping_cart.php' method='post' >";
+                    echo "<form name='upd' action='update_cart.php' method='post' >";
                     
                             echo "<input type='hidden' name='update' value='true'>";
-                            echo "<input id='quant' type='text' name='quant' value='{$quantity}'>";
+                            echo "<input type='hidden' name='thisid' value='{$id}'>";
+                            echo "<input id='quant' type='text' name='" . $id."quant" . "' value='{$quantity}'>";
                             echo "<input type='submit' value='Update'>";
                             
                     echo "</form>";
                     
-                    if (isset($_POST['update'])){
-                        
-                        $quantity = $_POST['quant'];
-                        updateCartQuant($quantity, $id);
-                   }
-                    
-                    echo "</div>";
-                    
-                    
                    
                     
-
+                    echo "</div>";
           }  
           ?> 
           <div id="container">
