@@ -24,7 +24,7 @@
            //Check each input
                if(isAlphabet(fn, "Letters Only in Name"))
                {
-                    if(!= isAlphabet(sn, "Letters Only in Name"))
+                    if(isAlphabet(sn, "Letters Only in Name"))
                     {
                         if(isAlphanumeric(addr, "Letters and Numbers Only in Addresss"))
                         {
