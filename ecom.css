@@ -2,6 +2,7 @@ body {
 	background: #45485e url('images/body-bg.png') repeat-x fixed;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	}
+
 #container {
 
 	background-color: #E3F6F0;
@@ -207,7 +208,6 @@ body {
 .formContainer {
 	height:700px;
 	width:800px;
-	background-color:white;
 	margin:auto;
 	margin-top: 40px;
 	 }
@@ -282,3 +282,18 @@ body {
         float: left;
         height: 100%;
     }
+
+
+    
+.orderSummary{
+	float:left;
+	width: 800px;
+	padding-left: 100px;
+	}
+
+table.padded-table td{
+	padding-top:5px; 
+	padding-right:50px; 
+	padding-bottom:5px; 
+	padding-left:50px; 
+	}

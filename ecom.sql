@@ -3,11 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2012 at 09:59 PM
+-- Generation Time: Apr 10, 2012 at 09:58 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -43,8 +42,31 @@ CREATE TABLE IF NOT EXISTS `cart` (
 INSERT INTO `cart` (`cart_id`, `prod_id`, `quantity`) VALUES
 (1001, 1, 2),
 (1001, 101, 1),
+(1001, 201, 4),
 (1002, 103, 4),
-(1002, 202, 3);
+(1002, 201, 10),
+(1002, 202, 3),
+(1008, 2, 2),
+(1009, 301, 2),
+(1009, 404, 2),
+(1010, 1, 1),
+(1010, 2, 2),
+(1010, 404, 4),
+(1011, 101, 2),
+(1011, 302, 2),
+(1012, 404, 2),
+(1013, 1, 1),
+(1013, 404, 1),
+(1014, 301, 4),
+(1014, 404, 8),
+(1015, 401, 1),
+(1015, 404, 1),
+(1016, 404, 5),
+(1017, 101, 1),
+(1017, 404, 1),
+(1018, 101, 1),
+(1019, 2, 1),
+(1019, 101, 5);
 
 -- --------------------------------------------------------
 
@@ -54,7 +76,7 @@ INSERT INTO `cart` (`cart_id`, `prod_id`, `quantity`) VALUES
 
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE IF NOT EXISTS `customer` (
-  `customer_id` int(8) NOT NULL,
+  `customer_id` char(50) NOT NULL,
   `fname` varchar(45) NOT NULL,
   `sname` varchar(45) NOT NULL,
   `address` varchar(45) NOT NULL,
@@ -68,7 +90,10 @@ CREATE TABLE IF NOT EXISTS `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `fname`, `sname`, `address`, `email`, `payment_method`) VALUES
-(1001, 'Robert', 'McBain', 'On top of a bridge somewhere', 'kill@vietnam.com', 'paypal');
+('trh', 'james', 'cameron', 'someplace', 'aef@agreg.ret', 'aerg'),
+('thrth', 'blah', 'Oblah', 'blahstree', 'wlefwe@wegwgweg.com', 'wrwer'),
+('45h4h', 'wef', 'weg', 'weeg', 'wsg@aerg.ce', 'wef'),
+('sththrhtr', 'Robert', 'McBain', 'On top of a bridge somewhere', 'kill@vietnam.com', 'paypal');
 
 -- --------------------------------------------------------
 
@@ -79,7 +104,7 @@ INSERT INTO `customer` (`customer_id`, `fname`, `sname`, `address`, `email`, `pa
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(8) NOT NULL AUTO_INCREMENT,
-  `customer_id` int(8) NOT NULL,
+  `customer_id` char(50) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cart_id` int(8) NOT NULL,
   `completed` tinyint(1) NOT NULL DEFAULT '0',
@@ -93,8 +118,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `cart_id`, `completed`) VALUES
-(1004, 1001, '2012-03-09 21:58:33', 1001, 0),
-(1005, 1001, '2012-03-09 21:58:33', 1002, 0);
+(1004, '45h4h', '2012-03-09 21:58:33', 1001, 0),
+(1005, '45h4h', '2012-03-09 21:58:33', 1002, 0);
 
 -- --------------------------------------------------------
 
@@ -234,7 +259,6 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `product_image`
   ADD CONSTRAINT `fk_product_image_products1` FOREIGN KEY (`prod_id`) REFERENCES `products` (`prod_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

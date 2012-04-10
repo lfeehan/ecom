@@ -46,7 +46,7 @@ if (!mysql_query($sql,$db_handle))
   die('Error: ' . mysql_error());
   }
 echo "1 record added";
-header("Location: index.php");
+header("Location: orderSummary.php");
 
 mysql_close($db_handle);
 ?> 
