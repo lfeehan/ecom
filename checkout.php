@@ -25,7 +25,8 @@ include 'database.php';
 
 	
 
+session_regenerate_id(true);
 session_destroy();
-session_regenerate_id();
+unset($_SESSION);
 header( 'Location: index.php' );
 ?>
