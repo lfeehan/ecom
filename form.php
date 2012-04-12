@@ -67,7 +67,9 @@
     
     function isAlphanumeric(elem, helperMsg)
     {
-        var alphaExp=/^[0-9a-zA-Z]+*$/;
+
+        var alphaExp=/^[0-9a-zA-Z]+$*/;
+
         if(elem.match(alphaExp))
         {
             return true;
@@ -105,39 +107,42 @@
 <div id="main-content"> 
 <?php include 'breadcrumb.php';?>
 
-	<div class="textformatting">
-    <form  name="customer" action="create_record.php"  method="post" onsubmit="return validateForm()" >
-		<div class="formContainer">
-        
-        <div class="formBox">
-        Please enter your details so we can process your order. Thank you.(Basic form,little to no validation at the moment. Sends to create_record.php)
-        </div>
-        
-        <div class="formBox">          
-        <input type="hidden" name="id" id="id" value=<?php echo(session_id());?> /> 
-     
-  		 </div>
-         <div class="formBox"> 
-         Firstname: <input type="text" name="firstname" id="firstname" />
-        
-         </div>
-         <div class="formBox"> 
-         Lastname: <input type="text" name="lastname" id="lastname" />
-         </div>
-        <div class="formBox"> 
-         Address: <input type="text" name="address" id="address" />
-         </div>
-         <div class="formBox"> 
-          Email: <input type="text" name="email" id="email" />
-         </div>
-        <div class="formBox"> 
-         Payment Method: <input type="text" name="pay" id="pay" />
-          <input type="submit" />
-           </form>
-		   
-         </div>
-        
-    </div>
+<div class="orderSummary">
+		
+		<table class="padded-table">
+			<form name="customer" action="orderSummary.php"  method="post" onsubmit="return validateForm()" >
+			
+			<input type="hidden" name="id" id="id" value=<?php echo(session_id());?> /> 
+
+			<tr>
+			<td>Firstname: </td><td><input type="text" name="firstname" id="firstname" /></td>
+			</tr>
+
+			<tr>
+			<td>Lastname: </td><td><input type="text" name="lastname" id="lastname" /></td>
+			</tr>
+			
+			<tr>
+			<td>Address: </td><td><input type="text" name="address" id="address" /></td>
+			</tr>
+			
+			<tr>
+			<td>Email: </td><td><input type="text" name="email" id="email" /></td>
+			</tr>
+			
+			<tr>
+			<td>Payment Method: </td><td><input type="text" name="pay" id="pay" /></td>
+			</tr>
+			
+			<tr>
+			<td colspan=2 align = right>
+			<input type="submit" value="Submit" />
+			</td>
+			
+			</form>
+		</table>
+	
+
     </div>
 
 </div>

@@ -18,9 +18,8 @@
 <?php include 'breadcrumb.php';?>	
 	
 <div id="fullpackage">
- 	
- 	<img src="images/pantherpackage.jpg" />
- 		</div>
+ 	<a href="products.php?beginner=1"><img src="images/pantherpackage.jpg"></a>
+</div>
  	
  		
  		
@@ -90,11 +89,11 @@
  		<!--prod_type variables are being passed through to the prodcuts.php
  		 page here -->
  		<div id="categories">
-     		<div id="kites"> <a href="products.php?prod_type=Kites"><img src="images/categoryImages/kitesurf_kites_button.png"></a></div>
-	        <div id="boards"> <a href="products.php?prod_type=Boards"><img src="images/categoryImages/kiteboards_button.png"> </a></div>
-	        <div id="boards"> <a href="products.php?prod_type=Surfboards"><img src="images/categoryImages/kite_surfboards_button.png"> </a></div>
-     		<div id="boards"> <a href="products.php?prod_type=Harnesses"><img src="images/categoryImages/harnesses_button.png"> </a></div>
-     		<div id="accessories"><a href="products.php?prod_type=Accessories"><img src="images/categoryImages/accessories_button.png"></a> </div>
+     		<div id="kites"> <a href="products.php?prod_type=Kites"><img src="images/categoryImages/kitesurf_kites_button.png" style="border-style: none"/></a></div>
+	        <div id="boards"> <a href="products.php?prod_type=Boards"><img src="images/categoryImages/kiteboards_button.png" style="border-style: none"/> </a></div>
+	        <div id="boards"> <a href="products.php?prod_type=Surfboards"><img src="images/categoryImages/kite_surfboards_button.png" style="border-style: none"/> </a></div>
+     		<div id="boards"> <a href="products.php?prod_type=Harnesses"><img src="images/categoryImages/harnesses_button.png" style="border-style: none"/> </a></div>
+     		<div id="accessories"><a href="products.php?prod_type=Accessories"><img src="images/categoryImages/accessories_button.png" style="border-style: none"/></a> </div>
         </div>
  		
 
