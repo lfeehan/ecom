@@ -273,7 +273,7 @@ body {
     #item-total{
         float: right;
         height: 100%;
-        width: 140px;
+        width: 160px;
         padding: 10px;
     }
     
@@ -297,3 +297,7 @@ table.padded-table td{
 	padding-bottom:5px; 
 	padding-left:50px; 
 	}
+
+        #quant{
+            width:40px;
+        }
