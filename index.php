@@ -18,9 +18,8 @@
 <?php include 'breadcrumb.php';?>	
 	
 <div id="fullpackage">
- 	
- 	<img src="images/pantherpackage.jpg" />
- 		</div>
+ 	<a href="products.php?beginner=1"><img src="images/pantherpackage.jpg"></a>
+</div>
  	
  		
  		
