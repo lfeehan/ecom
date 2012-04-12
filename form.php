@@ -67,7 +67,7 @@
     
     function isAlphanumeric(elem, helperMsg)
     {
-        var alphaExp=/^[0-9a-zA-Z]+$/;
+        var alphaExp=/^[0-9a-zA-Z]+$*/;
         if(elem.match(alphaExp))
         {
             return true;
@@ -108,7 +108,7 @@
 <div class="orderSummary">
 		
 		<table class="padded-table">
-			<form name="customer" action="create_record.php"  method="post" onsubmit="return validateForm()" >
+			<form name="customer" action="orderSummary.php"  method="post" onsubmit="return validateForm()" >
 			
 			<input type="hidden" name="id" id="id" value=<?php echo(session_id());?> /> 
 
