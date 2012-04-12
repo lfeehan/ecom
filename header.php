@@ -10,7 +10,7 @@
 
 <div id="container">
 	<div id="header">
-	<div style="float: right; padding-top:30px; padding-right: 50px;">
+	<div style="float: right; padding-top:30px;margin:10px; padding-right: 50px;background:white; border:thin solid;">
 		SUPER SHOPPING CART<br/>
                 <?php 
                     $item_total = cartTotal();

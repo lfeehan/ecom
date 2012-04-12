@@ -4,24 +4,6 @@
 <?php include 'database.php';?>
 <?php include 'header.php';?>
 
- 	<! 
-SQL Tables 	
-products
-prod_id, name, name_long, price, quantity, details, description, type, date_added, supplier_id
-
-product_image
-prod_id, image_id
-
-orders
-order_id, customer_id, order_date, cart_id, completed
-
-cart
-cart_id, prod_id, quantity
-
-customer
-customer_id, fname, sname, address, email, payment_method
- 	 ->
-
 <?php
  		#this takes the php?product=xxx value of xxx, this will reference the product we will display this page for
 		#$url_id = $_GET['product'];
@@ -80,8 +62,7 @@ customer_id, fname, sname, address, email, payment_method
 					echo "</p>";
 					?>
     </div>
-    <div id="middiv">
-    </div>
+    
     <div id="rigthdiv">
 		<div class="prodinfo">
 		
