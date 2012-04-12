@@ -9,13 +9,52 @@
         $_SESSION['cart'] = "";
     }
 ?>
-
 <?php include 'header.php';?>
 
 <body>
 <div id="main-content"> 
 <?php include 'breadcrumb.php';?>
 
+
+
+----------------------------------------------------------------------------------------------
+
+<?php
+function mysql_prep( $value )
+	{	
+		$magic_quotes_active = get_magic_quotes_gpc();
+		$new_enough_php = function_exists("mysql_real_escape_string");
+		
+		if($new_enough_php)
+			{
+				if( $magic_quotes_active )
+				{
+					$value = stripslashes( $value );
+				}
+				$value = mysql_real_escape_string( $value );
+			}
+		else
+			{
+				if(!$magic_quotes_active)
+					{
+						$value = addslashes( $value );
+					}
+			}
+		return $value;
+	}
+	
+
+#$sql="INSERT INTO customer (customer_id, fname, sname, address, email, payment_method)
+#VALUES('$_POST[id]','$fname','$sname','$add','$email','$payment_method')";
+#header("Location: orderSummary.php");
+
+?>
+
+
+
+
+
+----------------------------------------------------------------------------------------------
 <div class="orderSummary">
 
 <TABLE class="padded-table" border=0 cellpadding=0 align=LEFT>
@@ -70,6 +109,7 @@
 
 
 <?php
+/*
 $cust = session_id();
 
 $result = queryDB("SELECT fname, sname, address, email, payment_method
@@ -79,25 +119,32 @@ $result = queryDB("SELECT fname, sname, address, email, payment_method
 $result = queryDB("SELECT fname, sname, address, email, payment_method
 	FROM customer
 	WHERE customer_id = '" . $cust . "'");
+*/
 
-$cart_item = mysql_fetch_assoc($result);
-	$fname= $cart_item['fname'];
-	$sname= $cart_item['sname'];
-	$address= $cart_item['address'];
-	$email= $cart_item['email'];
-	$payment = $cart_item['payment_method'];
+	$fname = mysql_prep( $_POST['firstname'] );
+	$sname = mysql_prep( $_POST['lastname'] );;
+	$address = mysql_prep( $_POST['address'] );;
+	$email = mysql_prep( $_POST['email'] );;
+	$payment = mysql_prep( $_POST['pay'] );;
 	
 	echo ( "<TR><TD>Name: </TD><TD>{$fname} {$sname}</TD></TR>");
 	echo ( "<TR><TD>Address:</TD><TD>{$address}</TD></TR>");
 	echo ( "<TR><TD>email:</TD><TD>{$email}</TD></TR>");
 	echo ( "<TR><TD>Payment:</TD><TD>{$payment}</TD></TR>" );
 	echo ( "</TABLE>" );
-	
+
 	echo "<form name='complete' action='checkout.php' method='post' >";
-	echo "<input type='hidden' name='customer_id' value='{$cust}'>";
+	#echo "<input type='hidden' name='customer_id' value='{$cust}'>";
+	
+	echo "<input type='hidden' name='fname' value='{$fname}'>";
+	echo "<input type='hidden' name='sname' value='{$sname}'>";
+	echo "<input type='hidden' name='address' value='{$address}'>";
+	echo "<input type='hidden' name='email' value='{$email}'>";
+	echo "<input type='hidden' name='payment' value='{$payment}'>";
+	
 	echo "<input type='hidden' name='cart_id' value='{$cart_id}'>";
 	echo "<input type='submit' id='finished' value='Complete Order'>";
-	
+
 	echo "</form>";
 	
 ?>

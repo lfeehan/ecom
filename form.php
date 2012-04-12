@@ -108,7 +108,7 @@
 <div class="orderSummary">
 		
 		<table class="padded-table">
-			<form name="customer" action="create_record.php"  method="post" onsubmit="return validateForm()" >
+			<form name="customer" action="orderSummary.php"  method="post" onsubmit="return validateForm()" >
 			
 			<input type="hidden" name="id" id="id" value=<?php echo(session_id());?> /> 
 
