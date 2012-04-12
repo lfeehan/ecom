@@ -13,14 +13,14 @@ include 'database.php';
                 $last_order_id = mysql_fetch_assoc($result);
                 $order_id = $last_order_id['order_id'];
                 $order_id = $order_id + 1;
-                echo($order_id."<BR>");
-                echo($customer_id."<BR>");
-                echo($cart_id."<BR>");
+                #echo($order_id."<BR>");
+                #echo($customer_id."<BR>");
+                #echo($cart_id."<BR>");
                 $completed = 0;
                 $add_query = "INSERT INTO orders(order_id, customer_id, cart_id, completed )
                 VALUES({$order_id}, '{$customer_id}', {$cart_id}, $completed);";
                 $result = queryDB($add_query);
-                echo($result);
+                #echo($result);
   #          }
 
 	
@@ -28,5 +28,6 @@ include 'database.php';
 session_regenerate_id(true);
 session_destroy();
 unset($_SESSION);
+
 header( 'Location: index.php' );
 ?>

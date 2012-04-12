@@ -48,8 +48,13 @@
                 }
 		
 		echo ( "<TR>" );                
-                echo ( "<TD>{$name}</TD><TD>{$quantity}</TD><TD>{$price}</TD>" );
-                echo ( "</TR>" );
+                echo ( "<TD>{$name}</TD><TD>" );
+                	if( $quantity > $stock ){	#stock check
+                		echo("<font color=red>" . $quantity . "<i> Check Stock </i></font>");
+                	}else{
+                		echo($quantity);
+                	}
+                echo ( "</TD><TD>{$price}</TD></TR>" );
      }
      echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$item_total}</B></TD></TR>" );
      ?>
@@ -66,6 +71,11 @@
 
 <?php
 $cust = session_id();
+
+$result = queryDB("SELECT fname, sname, address, email, payment_method
+	FROM customer
+	WHERE customer_id = '" . $cust . "'");
+
 $result = queryDB("SELECT fname, sname, address, email, payment_method
 	FROM customer
 	WHERE customer_id = '" . $cust . "'");
@@ -83,11 +93,7 @@ $cart_item = mysql_fetch_assoc($result);
 	echo ( "<TR><TD>Payment:</TD><TD>{$payment}</TD></TR>" );
 	echo ( "</TABLE>" );
 	
-	
-
 	echo "<form name='complete' action='checkout.php' method='post' >";
-	
-	
 	echo "<input type='hidden' name='customer_id' value='{$cust}'>";
 	echo "<input type='hidden' name='cart_id' value='{$cart_id}'>";
 	echo "<input type='submit' id='finished' value='Complete Order'>";
