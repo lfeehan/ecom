@@ -274,7 +274,7 @@ body {
     }
     
     #cart-detail{
-        width-max: 350px;
+        width: 350px;
         float: left;
         height: 100%;
     }
@@ -297,4 +297,14 @@ table.padded-table td{
 
         #quant{
             width:40px;
+        }
+        
+        #cartisempty{
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        #buybutton{
+            width: 120px;
+            padding: 10px;
         }

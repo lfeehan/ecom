@@ -94,11 +94,7 @@ customer_id, fname, sname, address, email, payment_method
             		<!-- hidden fields add and product are passed to cart.php as a POST rather than onclick -->
 			<input type="hidden" name="add" value="true">
 			<input type="hidden" name="product" value="<?php echo $prod_id ?>">
-			<input type="submit" value="add">
-	
-            
-            
-                <!--<input type="submit" name="addtocart" value="Add to Cart" onclick="">-->
+			<input type="submit" value="Add to Cart">
 
 			</form>
           
