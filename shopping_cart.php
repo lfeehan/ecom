@@ -13,17 +13,8 @@
 		addToCart($prod_id);
 	}
         
-
-        
-        
-        
 	?>
-
-
-
-
 <?php include 'header.php';?>
-
 
 <body>
 
@@ -32,11 +23,13 @@
 
 
         <?php
+        if(isset($_SESSION['cart'])){
         # $_GET takes item_id passed to URL from "Add to Cart" button. 
             $item_id = $_SESSION['cart'];
             
-
-            
+            $cart_total = null;
+ 
+    
             $result = queryDB("SELECT p.prod_id AS prod_id, name, details, p.quantity AS stock, price, c.quantity AS quantity
                 FROM products p, cart c
                 WHERE p.prod_id = c.prod_id AND cart_id = {$item_id}");
@@ -53,13 +46,13 @@
                 $item_total= $quantity * $price;
                 
                 if(isset($cart_total)){
-                    $cart_total= $cart_total + $item_total;
+                    $cart_total = $cart_total + $item_total;
                 }else{
-                    $cart_total= $item_total;
+                    $cart_total = $item_total;
                 }
                 
                 
-                        $SQL2 = "SELECT image_id FROM product_image WHERE prod_id = \"" . $id . "\"";
+                        $SQL2 = "SELECT image_id FROM product_image WHERE prod_id ='{$id}' ";
 			$result2 = mysql_query($SQL2);
 			while ($image_field = mysql_fetch_assoc($result2)){
 				$image_loc= $image_field['image_id'];
@@ -67,55 +60,82 @@
                                 
                         
  
-                echo "<div id=\"container\">";
+                echo "<div id='container'>";
                     echo "<div>";
-                            echo "<img id=\"container-img\" src =\"{$image_loc}\" />";
+                            echo "<img id='container-img' src ='{$image_loc}' />";
                     echo "</div>";
-                    echo "<div id=\"cart-detail\" >";
+                    echo "<div id='cart-detail' >";
                             echo "<p>Item: {$name}</p>";
-                    #        echo "<p>In Stock: {$stock}<br/>";
                             echo "<p>Details: {$details}</p><br/>";
                     echo "</div>";
-                 #   echo "<div id=\"cart-detail\">";
-                  #          echo "<p>Price: {$price}<br/>";
-                 #           echo "<p>Quantity: {$quantity}<br/>";
-                 #   echo "</div>";
-                    echo "<div id=\"item-total\">";
-                            echo "<p>Price: {$price}<br/>";
-                            echo "<p>Quantity: {$quantity}<br/><br/>";
-                            echo "<p>Item Total: {$item_total}<br/>";
-                    echo "</div>";
+                    echo "<div id='item-total'>";
+                            echo "<p>Price: {$price}<br/>";                            
                     
-              #######     update quantity test zone!!!!! ############
+                            echo "<form name='upd' action='update_cart.php' method='post' >";
                     
-              #So far this updates the db but requires a page refresh for the new quantity to show.
-              #Also, it updates EVERY product in the cart to the figure entered into ANY textbox.
-              # This happens because on refresh it tests the if (isset($_POST['update']) statement
-              # which is true for every product container in the cart.
-                   
-                    echo "<form name='upd' action='update_cart.php' method='post' >";
-                    
-                            echo "<input type='hidden' name='update' value='true'>";
-                            echo "<input type='hidden' name='thisid' value='{$id}'>";
-                            echo "<input id='quant' type='text' name='" . $id."quant" . "' value='{$quantity}'>";
-                            echo "<input type='submit' value='Update'>";
+                                echo "<input type='hidden' name='update' value='true'>";
+                                echo "<input type='hidden' name='thisid' value='{$id}'>";
+                                echo "<p>Quantity: <input id='quant' type='text' name='" . $id."quant" . "' value='{$quantity}' ><br/><br/>";
+                                echo "<input type='submit' value='Update'>";
                             
-                    echo "</form>";
-                    
-                   
-                    
+                            echo "</form>";
+                            
+                            echo "<p>Item Total: {$item_total}<br/>";
+                            
                     echo "</div>";
-          }  
+                echo "</div>";
+          }
+          
+          
+        }  
           ?> 
-          <div id="container">
+  <!--        <div id="container">
           
           
-            <div id="item-total"><?php   echo "<p>Cart Total: {$cart_total}<br/>"; ?>
+            <div id="item-total"><?php  # echo "<p>Cart Total: {$cart_total}<br/>"; ?>
             <form name="buy" action="form.php" method="post" >
                 <input type="submit" value="Buy">
             </form>
           </div>
-         </div>
+         </div> -->
+         <?php   
+         
+             if(isset($_SESSION['cart']) && ($cart_total == 0)){
+                 session_destroy();
+                 unset($_SESSION);
+                 #setcookie ("PHPSESSID", "", time() - 3600);
+    }
+         
+         if(isset($_SESSION['cart'])){
+         echo "<div id='container'>         
+          
+            <div id='item-total'><p>Cart Total: {$cart_total}<br/>
+                <form name='buy' action='form.php' method='post' >
+                    <input id='buybutton' type='submit' value='Buy Now!'>
+                </form>
+                <br/>
+                <form name='del' action='update_cart.php' method='post' >
+                    <input type='hidden' name='delete' value='true'>
+                    <input type='Submit' value='Empty Cart'>
+                </form>
+            </div>";
+
+         echo "</div>";
+         }else{
+             echo "
+             <div id='container'>
+                <div id='cartisempty'>
+                Your cart has no items in it. &nbsp;
+                     <a href='index.php'> Click here to keep shopping</a>
+                </div>
+             </div>";
+         }
+    ?>
+  
+    
+    <?php
+
+    ?>
     
     
  		

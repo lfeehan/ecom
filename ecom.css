@@ -166,13 +166,12 @@ body
 
 #categories 
 {
-    height:160px;
-    width:100%;
-    background-color:white;
-    float:left;
-    margin-top:10px;
+  height:160px;
+  width:100%;
+  background-color:white;
+  float:left;
+  margin-top:10px;
 }
-
 #kites 
 {
 	height:160px;
@@ -181,7 +180,6 @@ body
 	margin-bottom: 10px;
 	float:left;
 }
-
 #boards 
 {
 	height:160px;
@@ -190,7 +188,6 @@ body
 	margin-bottom: 10px;
 	float:left;
 }
-
 #accessories 
 {
 	height:160px;
@@ -199,7 +196,6 @@ body
 	margin-bottom:10px;
 	float:left;
 }
-
 #footer 
 {
 	height: 60px;
@@ -215,7 +211,7 @@ body
 {
   height:50px;
   width:50px;
-  }
+}
     
 #productText 
 {
@@ -225,13 +221,6 @@ body
 	margin:auto;
 	margin-top: 40px;
 	padding:20px; 
-	border: 3px solid #a29f9b;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	-moz-box-shadow: 0 0 10px #1b1c25;
-	-webkit-box-shadow: 0 0 10px #1b1c25;
-	box-shadow: 0 0 10px #1b1c25;
 }
 	
 .formContainer 
@@ -296,7 +285,6 @@ body
   margin-right:100px;
   width:100px;
 }  
-
 .productsPageProductDetails 
 {
   float:left;
@@ -305,17 +293,17 @@ body
   width:200px;
 }
     
-#item-total
+    #item-total
 {
-  float: right;
-  height: 100%;
-  width: 140px;
-  padding: 10px;
+	float: right;
+	height: 100%;
+	width: 160px;
+	padding: 10px;
 }
     
 #cart-detail
 {
-  width-max: 350px;
+  width: 350px;
   float: left;
   height: 100%;
 }
@@ -336,4 +324,21 @@ table.padded-table td
 	padding-right:50px; 
 	padding-bottom:5px; 
 	padding-left:50px; 
+}
+
+#quant
+{
+  width:40px;
+}
+
+#cartisempty
+{
+  padding: 20px 0;
+  text-align: center;
+}
+        
+#buybutton
+{
+  width: 120px;
+  padding: 10px;
 }

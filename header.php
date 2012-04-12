@@ -14,12 +14,11 @@
 		SUPER SHOPPING CART<br/>
                 <?php 
                     $item_total = cartTotal();
-                    echo $item_total;        
-                ?>
-                <?php
+                    echo $item_total;
+                
                     if($item_total != "<p>Cart is empty</p>"){
-                        echo "<form action=\"shopping_cart.php\" method=\"link\" >";
-                        echo "<input type=\"submit\" name=\"gotocart\" value=\"Go to Cart\" /></form>";
+                        echo "<form action='shopping_cart.php' method='link' >";
+                        echo "<input type='submit' name='gotocart' value=' Go to Cart' /></form>";
                     }
                 ?>                
 	</div>

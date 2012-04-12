@@ -13,20 +13,18 @@ of that type-->
 
   
  <?php
- 		$prod_type=$_GET['prod_type'];
- 		$beginner=$_GET['beginner'];
- 		include 'breadcrumb.php';
-		
-		
-		if (isset ($beginner))
-		{
-		   $all_rows=queryDB("SELECT * FROM products WHERE beginner=1");
-    }
-		
+ include 'breadcrumb.php';
+ if (isset($_GET['beginner'])){
+ 	 $beginner = $_GET['beginner'];
+ 	 $all_rows=queryDB("SELECT * FROM products WHERE beginner=1");
+ 	 echo("BEGINNER ITEMS<BR/>");
+ }else if (isset($_GET['prod_type'])){	
+		$prod_type = $_GET['prod_type'];
 		if (isset($prod_type))
 		{
 		  $all_rows=queryDB("SELECT * FROM products WHERE type='$prod_type'");
 		}
+ }
 		while($one_row=mysql_fetch_assoc($all_rows)) {
 		$id= $one_row['prod_id'];
 		$name= $one_row['name'];

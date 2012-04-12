@@ -143,7 +143,7 @@
                 $result = queryDB($query);
                 $quantity_field = mysql_fetch_assoc($result);
                 $count = $quantity_field['tot'];
-                return "Items in your cart: {$count}";
+                return "<p>Items in your cart: {$count}</p>";
             }
         }	
 	

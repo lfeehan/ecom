@@ -67,7 +67,9 @@
     
     function isAlphanumeric(elem, helperMsg)
     {
+
         var alphaExp=/^[0-9a-zA-Z]+$*/;
+
         if(elem.match(alphaExp))
         {
             return true;
