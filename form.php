@@ -114,7 +114,7 @@
         </div>
         
         <div class="formBox">          
-            UserID:  <input type="number" name="id" id="id" /> 
+        <input type="hidden" name="id" id="id" value=<?php echo(session_id());?> /> 
      
   		 </div>
          <div class="formBox"> 
