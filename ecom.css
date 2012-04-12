@@ -292,7 +292,7 @@ table.padded-table td{
 	padding-top:5px; 
 	padding-right:50px; 
 	padding-bottom:5px; 
-	padding-left:50px; 
+	padding-left:50px;
 	}
 
         #quant{
@@ -307,4 +307,9 @@ table.padded-table td{
         #buybutton{
             width: 120px;
             padding: 10px;
+        }
+        
+        #change-quant{
+            float: right;
+            width: 400px;
         }

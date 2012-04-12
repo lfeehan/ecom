@@ -64,12 +64,16 @@ function mysql_prep( $value )
  <?php
  
     $cart_id = $_SESSION['cart'];
+    
+    $change_quant = false;
 
     $result = queryDB("SELECT p.prod_id AS prod_id, name, details, p.quantity AS stock, price, c.quantity AS quantity
 	FROM products p, cart c
 	WHERE p.prod_id = c.prod_id AND cart_id = {$cart_id}");
     
-     while($cart_item = mysql_fetch_assoc($result)){                
+     while($cart_item = mysql_fetch_assoc($result)){
+         
+
             
 		$name= $cart_item['name'];
 		$price= $cart_item['price'];
@@ -89,13 +93,26 @@ function mysql_prep( $value )
 		echo ( "<TR>" );                
                 echo ( "<TD>{$name}</TD><TD>" );
                 	if( $quantity > $stock ){	#stock check
+                            
+                                if(isset($loop_count)){                                    
+                                    $loop_count = $loop_count + 1;
+                                }else{
+                                    $loop_count = 0;
+                                }
+                            
+                                $outofstock[$loop_count] = $name;
+
+                                $change_quant = true;
+                                $max_stock[$loop_count] = $stock;
                 		echo("<font color=red>" . $quantity . "<i> Check Stock </i></font>");
                 	}else{
                 		echo($quantity);
                 	}
-                echo ( "</TD><TD>{$price}</TD></TR>" );
+                #echo ( "</TD><TD>{$price}</TD></TR>" );
+                echo ( "</TD><TD>{$item_total}</TD></TR>" );
      }
-     echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$item_total}</B></TD></TR>" );
+     #echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$item_total}</B></TD></TR>" );
+     echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$cart_total}</B></TD></TR>" );
      ?>
 
 </TABLE>
@@ -132,20 +149,37 @@ $result = queryDB("SELECT fname, sname, address, email, payment_method
 	echo ( "<TR><TD>email:</TD><TD>{$email}</TD></TR>");
 	echo ( "<TR><TD>Payment:</TD><TD>{$payment}</TD></TR>" );
 	echo ( "</TABLE>" );
+        
+        if($change_quant == false){
+            echo "<form name='complete' action='checkout.php' method='post' >";
+            #echo "<input type='hidden' name='customer_id' value='{$cust}'>";
 
-	echo "<form name='complete' action='checkout.php' method='post' >";
-	#echo "<input type='hidden' name='customer_id' value='{$cust}'>";
-	
-	echo "<input type='hidden' name='fname' value='{$fname}'>";
-	echo "<input type='hidden' name='sname' value='{$sname}'>";
-	echo "<input type='hidden' name='address' value='{$address}'>";
-	echo "<input type='hidden' name='email' value='{$email}'>";
-	echo "<input type='hidden' name='payment' value='{$payment}'>";
-	
-	echo "<input type='hidden' name='cart_id' value='{$cart_id}'>";
-	echo "<input type='submit' id='finished' value='Complete Order'>";
+            echo "<input type='hidden' name='fname' value='{$fname}'>";
+            echo "<input type='hidden' name='sname' value='{$sname}'>";
+            echo "<input type='hidden' name='address' value='{$address}'>";
+            echo "<input type='hidden' name='email' value='{$email}'>";
+            echo "<input type='hidden' name='payment' value='{$payment}'>";
+            
+            echo "<input type='hidden' name='cart_id' value='{$cart_id}'>";
+            echo "<input type='submit' id='finished' value='Complete Order'>";
 
-	echo "</form>";
+            echo "</form>";
+        }else{
+            echo "<div id='change-quant'>";          
+                echo "<form name='complete' action='shopping_cart.php' method='post' >";
+
+                for($i = 0; $i < count($outofstock); ++$i){
+                    echo "<p>The maximum number of <b>{$outofstock[$i]}</b> units you can order at the moment is <b>{$max_stock[$i]}</b>. </p>";
+                }
+                echo "<p>Please go back to your cart and change the quantity";
+                if((count($outofstock)) > 1){echo "'s";}
+                echo".</p>";
+
+                echo "<input type='submit' id='finished' value='Change Quantity'>";
+
+                echo "</form>";
+            echo "</div>";
+        }
 	
 ?>
 

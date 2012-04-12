@@ -67,6 +67,7 @@
                     echo "<div id='cart-detail' >";
                             echo "<p>Item: {$name}</p>";
                             echo "<p>Details: {$details}</p><br/>";
+                            echo "<p>In Stock: {$stock}</p><br/>";
                     echo "</div>";
                     echo "<div id='item-total'>";
                             echo "<p>Price: {$price}<br/>";                            
