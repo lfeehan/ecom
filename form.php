@@ -152,7 +152,9 @@
 			</tr>
 			
 			<tr>
-			<td>Payment Method: </td><td><input type="text" name="pay" id="pay" /></td>
+			<td>Payment Method: </td><td><input type="radio" name="pay" value="Credit Card" />Credit Card
+			                              <input type="radio" name="pay" value="Paypal" />Paypal
+			</td>
 			</tr>
 			
 			<tr>
