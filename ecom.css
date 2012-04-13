@@ -129,7 +129,15 @@ p
 	width:100%;
 	margin:auto;
 	margin-bottom:0px;
-	
+}
+#title  a:link, #title a:visited, #title a:hover, #title a:active
+{
+  float:left;
+	font-size:80px;
+	padding:35px 0px 0px 10px;
+	font-family: 'Russo One', sans-serif;
+	text-decoration:none;
+	color:black;
 }
 
 #breadcrumb 
@@ -161,7 +169,7 @@ p
 	margin-right:65px;
 	height:520px;
 	width:220px;
-	background-color: lightblue;
+	background-image: url(images/newProdcutsBackground.png);
 	float:right;	
 	border: thin solid;
 	-moz-border-radius: 5px;
@@ -262,6 +270,7 @@ p
 {
   height:210px;
   width:100%;
+  font-size:20px;
   border-top-style:solid;
   background-color:white;
   float:left;

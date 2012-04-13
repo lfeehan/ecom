@@ -4,12 +4,15 @@
  <head> 
  <title>Kitesurfing Shop</title>
  <link href="ecom.css" rel="stylesheet" type="text/css" />
- 	
+ 	<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
  </head>
 <!--Header file contains the header of the site -->
 
 <div id="container">
 	<div id="header">
+	  <div id="title">
+	 <a href="index.php"> Panther Kitesurfing </a>
+	  </div>
 	<div id="cartHeader">
 	
 		SUPER SHOPPING CART<br/>
