@@ -10,7 +10,7 @@
 
 <div id="container">
 	<div id="header">
-	<div style="float: right; padding-top:5px; padding-bottom:5px; margin:5px 65px 5px 5px; padding-right:25px; padding-left:5px; background:white; border:thin solid;">
+	<div id="cartHeader">
 	
 		SUPER SHOPPING CART<br/>
                 <?php 
