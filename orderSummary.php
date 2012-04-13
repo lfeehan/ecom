@@ -140,7 +140,7 @@ $result = queryDB("SELECT fname, sname, address, email, payment_method
 
 	$fname = mysql_prep( $_POST['firstname'] );
 	$sname = mysql_prep( $_POST['lastname'] );;
-	$address = mysql_prep( $_POST['address'] );;
+	$address = mysql_prep( $_POST['address1'] . " " . $_POST['address2'] . " " . $_POST['city'] . " " . $_POST['country'] );;
 	$email = mysql_prep( $_POST['email'] );;
 	$payment = mysql_prep( $_POST['pay'] );;
 	
