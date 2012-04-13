@@ -10,7 +10,8 @@
 
 <div id="container">
 	<div id="header">
-	<div style="float: right; padding-top:30px;margin:10px; padding-right: 50px;background:white; border:thin solid;">
+	<div style="float: right; padding-top:5px; padding-bottom:5px; margin:5px 65px 5px 5px; padding-right:25px; padding-left:5px; background:white; border:thin solid;">
+	
 		SUPER SHOPPING CART<br/>
                 <?php 
                     $item_total = cartTotal();
@@ -18,7 +19,7 @@
                 
                     if($item_total != "<p>Cart is empty</p>"){
                         echo "<form action='shopping_cart.php' method='link' >";
-                        echo "<input type='submit' name='gotocart' value=' Go to Cart' /></form>";
+                        echo "<input type='image' src='images/cartPanther.png'  width='170' height='58' name='gotocart' value=' Go to Cart' /></form>";
                     }
                 ?>                
 	</div>
