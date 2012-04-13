@@ -18,23 +18,35 @@
     {
         var fn=document.getElementById("firstname").value;
         var sn=document.getElementById("lastname").value;
-        var addr=document.getElementById("address").value;
+        var addr1=document.getElementById("address1").value;
+        var addr2=document.getElementById("address2").value;
+        var city=document.getElementById("city").value;
+        var country=document.getElementById("country").value;
         var email=document.getElementById("email").value;
           
            //Check each input
-               if(isAlphabet(fn, "Letters Only in Name"))
-               {
-                    if(isAlphabet(sn, "Letters Only in Name"))
+        if(isAlphabet(fn, "Letters Only in Name"))
+        {
+          if(isAlphabet(sn, "Letters Only in Name"))
+          {
+            if(isAlphanumeric(addr1, "Letters and Numbers Only in Addresss"))
+            {
+              if(isAlphanumeric(addr2, "Letters and Numbers Only in Addresss"))
+              {
+                if(isAlphanumeric(city, "Letters and Numbers Only in Addresss"))
+                {    
+                  if(isAlphanumeric(country, "Letters and Numbers Only in Addresss"))  
+                  {
+                    if(emailValidator(email, "Please Check Your Email"))
                     {
-                        if(isAlphanumeric(addr, "Letters and Numbers Only in Addresss"))
-                        {
-                            if(emailValidator(email, "Please Check Your Email"))
-                            {
-                                return true;
-                            }   
-                        }
+                      return true;
                     }
-                }
+                   } 
+                 }   
+              }   
+            }
+          }
+        }
             
             return false;
     }
@@ -68,7 +80,7 @@
     function isAlphanumeric(elem, helperMsg)
     {
 
-        var alphaExp=/^[0-9a-zA-Z]+$*/;
+        var alphaExp=/^[0-9a-zA-Z ]+$/;
 
         if(elem.match(alphaExp))
         {
@@ -123,7 +135,16 @@
 			</tr>
 			
 			<tr>
-			<td>Address: </td><td><input type="text" name="address" id="address" /></td>
+			<td>Address: </td><td><input type="text" name="address1" id="address1" /></td>
+			</tr>
+						<tr>
+			<td>Address: </td><td><input type="text" name="address2" id="address2" /></td>
+			</tr>
+						<tr>
+			<td>City: </td><td><input type="text" name="city" id="city" /></td>
+			</tr>
+						<tr>
+			<td>Country: </td><td><input type="text" name="country" id="country" /></td>
 			</tr>
 			
 			<tr>
