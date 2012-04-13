@@ -75,7 +75,7 @@
             		<!-- hidden fields add and product are passed to cart.php as a POST rather than onclick -->
 			<input type="hidden" name="add" value="true">
 			<input type="hidden" name="product" value="<?php echo $prod_id ?>">
-			<input type="submit" value="Add to Cart">
+			<input type="image" src="images/buyPanther.png" onMouseDown="this.src='images/buyPantherRoll.png'" onMouseUp="this.src='images/buyPanther.png'" width="170" height="58" value="Add to Cart">
 
 			</form>
           

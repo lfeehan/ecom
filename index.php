@@ -53,7 +53,7 @@
  				$id= $one_row['prod_id'];
  				$name= $one_row['name'];
  				
- 				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
+ 				echo "<div style=\"float: top; padding: 10px; width:190px;\">";
  				
  				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
  				echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
@@ -71,7 +71,7 @@
  				$id= $one_row['prod_id'];
  				$name= $one_row['name'];
  				
- 				echo "<div style=\"float: top; padding: 10px; width:175px;\">";
+ 				echo "<div style=\"float: top; padding: 10px; width:190px;\">";
  				
  				#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
  				echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
