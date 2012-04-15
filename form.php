@@ -12,8 +12,7 @@
     }
 ?>
 
-<!-- Validation Script -->
-<script type="text/javascript" >
+<script type="text/javascript">
     function validateForm()
     {
         var fn=document.getElementById("firstname").value;
@@ -47,10 +46,9 @@
             }
           }
         }
-            
             return false;
     }
-    
+   
     function notEmpty(elem, helperMsg)
     {
         if(elem.length==0)
@@ -88,7 +86,7 @@
         }
         else
         {
-            alert(helperMsg);
+            //alert(helperMsg);
             elem.focus;
             return false;
         }
@@ -108,18 +106,18 @@
             return false;
         }
     }
-
 </script>
 
 
 <?php include 'header.php';?>
 
-<link href="ecom.css" rel="stylesheet" type="text/css" />
 <body>
-<div id="main-content"> 
+
+<div id="main-content" style="height: 600px;">
 <?php include 'breadcrumb.php';?>
 
-<div class="orderSummary">
+<div id="productText" style="width:60%;">
+<div class="orderSummary" >
 		
 		<table class="padded-table">
 			<form name="customer" action="orderSummary.php"  method="post" onsubmit="return validateForm()" >
@@ -164,9 +162,5 @@
 			
 			</form>
 		</table>
-	
 
-    </div>
-
-</div>
 </body>

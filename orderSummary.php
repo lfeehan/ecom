@@ -12,12 +12,9 @@
 <?php include 'header.php';?>
 
 <body>
-<div id="main-content"> 
+<div id="main-content" style="height:600px;"> 
 <?php include 'breadcrumb.php';?>
 
-
-
-----------------------------------------------------------------------------------------------
 
 <?php
 function mysql_prep( $value )
@@ -43,18 +40,12 @@ function mysql_prep( $value )
 		return $value;
 	}
 	
-
-#$sql="INSERT INTO customer (customer_id, fname, sname, address, email, payment_method)
-#VALUES('$_POST[id]','$fname','$sname','$add','$email','$payment_method')";
-#header("Location: orderSummary.php");
-
 ?>
 
 
 
 
-
-----------------------------------------------------------------------------------------------
+<div id="productText">
 <div class="orderSummary">
 
 <TABLE class="padded-table" border=0 cellpadding=0 align=LEFT>
@@ -123,20 +114,7 @@ function mysql_prep( $value )
 <div class="orderSummary">
 <TABLE class="padded-table" border=0 cellpadding=0 align=LEFT>
 <TR><TD align=left colspan=2><B>Customer Details</B></TD></TR>
-
-
 <?php
-/*
-$cust = session_id();
-
-$result = queryDB("SELECT fname, sname, address, email, payment_method
-	FROM customer
-	WHERE customer_id = '" . $cust . "'");
-
-$result = queryDB("SELECT fname, sname, address, email, payment_method
-	FROM customer
-	WHERE customer_id = '" . $cust . "'");
-*/
 
 	$fname = mysql_prep( $_POST['firstname'] );
 	$sname = mysql_prep( $_POST['lastname'] );;
@@ -151,8 +129,8 @@ $result = queryDB("SELECT fname, sname, address, email, payment_method
 	echo ( "</TABLE>" );
         
         if($change_quant == false){
+        	echo "</div>";
             echo "<form name='complete' action='checkout.php' method='post' >";
-            #echo "<input type='hidden' name='customer_id' value='{$cust}'>";
 
             echo "<input type='hidden' name='fname' value='{$fname}'>";
             echo "<input type='hidden' name='sname' value='{$sname}'>";
@@ -161,7 +139,7 @@ $result = queryDB("SELECT fname, sname, address, email, payment_method
             echo "<input type='hidden' name='payment' value='{$payment}'>";
             
             echo "<input type='hidden' name='cart_id' value='{$cart_id}'>";
-            echo "<input type='submit' id='finished' value='Complete Order'>";
+            echo "<input type='submit' id='finished' value='Complete Order' style='float:right;'>";
 
             echo "</form>";
         }else{
@@ -183,8 +161,6 @@ $result = queryDB("SELECT fname, sname, address, email, payment_method
 	
 ?>
 
-
-</div>
 
 
 </div>

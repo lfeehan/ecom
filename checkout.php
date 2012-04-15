@@ -17,6 +17,23 @@ include 'database.php';
 		VALUES('$customer_id','$fname','$sname','$address','$email','$payment')"; 		
 		$result = queryDB($insert_customer);
 		
+		$removeQuery = queryDB("SELECT prod_id, quantity FROM cart WHERE cart_id = '{$cart_id}'");
+		while ($remove = mysql_fetch_assoc($removeQuery)) 
+		{ 
+			$rm_prod_id = $remove['prod_id'];
+ 			$rm_qty = $remove['quantity'];
+ 			
+			$get_stock = queryDB("SELECT quantity FROM products WHERE prod_id = '{$rm_prod_id}'");
+			$stock = mysql_fetch_assoc($get_stock);
+			$cur_stock = $stock['quantity'];
+			
+			$new_stock = $cur_stock - $rm_qty;
+			
+			$execute_remove_query = queryDB("UPDATE products SET quantity = '{$new_stock}' WHERE prod_id = '{$rm_prod_id}'");	
+ 		}
+ 				
+
+		
                 $query = "SELECT MAX( order_id ) AS order_id FROM orders";
                 $result = queryDB($query);
                 $last_order_id = mysql_fetch_assoc($result);

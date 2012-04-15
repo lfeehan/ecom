@@ -11,7 +11,7 @@
 <div id="container">
 	<div id="header">
 	  <div id="title">
-	 <a href="index.php"> Panther Kitesurfing </a>
+	  <a href="index.php" style="text-shadow: 5px 5px 20px #000; color: #fff; font-size: 42px; margin-top: 16px; margin-left:65px;">Panther Kitesurfing </a>
 	  </div>
 	<div id="cartHeader">
 	

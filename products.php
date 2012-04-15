@@ -14,11 +14,12 @@ of that type-->
   
  <?php
  include 'breadcrumb.php';
+ echo "<div id='productText'>";
+ 
  if (isset($_GET['beginner'])){
  	 $beginner = $_GET['beginner'];
  	 $all_rows=queryDB("SELECT * FROM products WHERE beginner=1");
- 	 echo("BEGINNER ITEMS<BR/>");
- }else if (isset($_GET['prod_type'])){	
+}else if (isset($_GET['prod_type'])){	
 		$prod_type = $_GET['prod_type'];
 		if (isset($prod_type))
 		{
@@ -46,7 +47,7 @@ of that type-->
         if ($quantity ==0) {
         echo "Out of Stock";
         }
-        else echo "In Stock";
+        else echo "{$quantity} In Stock";
         echo '</div>';
          
         #Echos product price
@@ -60,7 +61,7 @@ of that type-->
 #        echo $details;
 #        echo '</div>'; 
                     
-        #get image path for this particular product id
+#get image path for this particular product id
  		$image_loc = getImage($id);
  		$image_resized = resizeImage($image_loc, 250,250);
  		#output the image in a div class prodthumb
