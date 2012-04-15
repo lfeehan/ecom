@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  
  <head> 
+ <script type="text/JavaScript" src="validation.js"></script> 
  <title>Kitesurfing Shop</title>
  <link href="ecom.css" rel="stylesheet" type="text/css" />
  	<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
