@@ -91,54 +91,58 @@
 			}#endwhile looping through all products in cart
 	
 	
-	}
-	?> 
+	  }
+  ?> 
 	
 
           
             
         
-         <?php   
-         
-             if(isset($_SESSION['cart']) && ($cart_total == 0)){
-                 session_destroy();
-                 unset($_SESSION);
-                 #setcookie ("PHPSESSID", "", time() - 3600);
-    }
-         
-         if(isset($_SESSION['cart'])){
-         echo "     
-          
-            <div id='item-total'><p>Cart Total: {$cart_total}<br/>
-                <form name='buy' action='form.php' method='post'>
-                    <input id='buybutton' type='submit' value='Buy Now!'>
-                </form>
-                <br/>
-                <form name='del' action='update_cart.php' method='post' >
-                    <input type='hidden' name='delete' value='true'>
-                    <input type='Submit' value='Empty Cart'>
-                </form>
-            </div>
-           
-            ";
+  <?php   
 
-       }else{
-             echo "
-             <div id='container'>
-                <div id='cartisempty'>
-                Your cart has no items in it. &nbsp;
-                     <a href='index.php'> Click here to keep shopping</a>
-                </div>
-             </div>";
-         }
+   if(isset($_SESSION['cart']) && ($cart_total == 0))
+   {
+     session_destroy();
+     unset($_SESSION);
+     #setcookie ("PHPSESSID", "", time() - 3600);
+   }
+         
+   if(isset($_SESSION['cart']))
+   {
+   echo "     
+    
+      <div id='item-total'><p>Cart Total: {$cart_total}<br/>
+          <form name='buy' action='form.php' method='post'>
+              <input id='buybutton' type='submit' value='Buy Now!'>
+          </form>
+          <br/>
+          <form name='del' action='update_cart.php' method='post' >
+              <input type='hidden' name='delete' value='true'>
+              <input type='Submit' value='Empty Cart'>
+          </form>
+      </div>
+     
+      ";
+
+    }
+    else
+    {
+    echo "
+      <div id='container'>
+       <div id='cartisempty'>
+        Your cart has no items in it. &nbsp;
+          <a href='index.php'> Click here to keep shopping</a>
+       </div>
+      </div>";
+     }
            
-    ?>
+  ?>
   
       
     
-    <?php
+  <?php
 
-    ?>
+  ?>
     
     
  		
