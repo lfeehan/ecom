@@ -14,9 +14,9 @@
 ?>
 
 <?php include 'header.php';?>
-<div id="main-content" style="height:600px;">
-<body>
 
+<body>
+<div id="main-content" style="height:600px;">
 
 <?php include 'breadcrumb.php';?>
 
@@ -68,6 +68,7 @@
 	  </table>
   </div>
 </div>
+
 <?php include 'footer.php';?>
 <? mysql_close($db_handle); ?>
 </html>
