@@ -55,7 +55,7 @@
 		
 		  <tr>
 		  <td>Payment Method: </td><td><input type="radio" name="pay" value="Credit Card" />Credit Card
-		                                <input type="radio" name="pay" value="Paypal" />Paypal
+		                                <input type="radio" name="pay" value="Paypal" checked="checked"/>Paypal
 		  </td>
 		  </tr>
 		

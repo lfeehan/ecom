@@ -139,10 +139,10 @@
   <?php
 
 	  $fname = mysql_prep( $_POST['firstname'] );
-	  $sname = mysql_prep( $_POST['lastname'] );;
-	  $address = mysql_prep( $_POST['address1'] . " " . $_POST['address2'] . " " . $_POST['city'] . " " . $_POST['country'] );;
-	  $email = mysql_prep( $_POST['email'] );;
-	  $payment = mysql_prep( $_POST['pay'] );;
+	  $sname = mysql_prep( $_POST['lastname'] );
+	  $address = mysql_prep( $_POST['address1'] . " " . $_POST['address2'] . " " . $_POST['city'] . " " . $_POST['country'] );
+	  $email = mysql_prep( $_POST['email'] );
+	  $payment = mysql_prep( $_POST['pay'] );
 	
 	  echo ( "<TR><TD>Name: </TD><TD>{$fname} {$sname}</TD></TR>");
 	  echo ( "<TR><TD>Address:</TD><TD>{$address}</TD></TR>");
