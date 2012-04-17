@@ -97,7 +97,7 @@
     <div class="prodinfo">
       <div class="textformatting">
 				<?php 				
-				echo "<b>Price: </b>" . $price;
+				echo "<b>Price: </b>&euro;" . $price;
 				?>
       </div>
     </div>
@@ -113,8 +113,16 @@
     <div id="details">
   		<div class="textformatting">
         <?php 
+                            if($details != ""){
 				echo "<b>Details: </b>" . $details;
+                            }
 				?>
+      </div>
+    </div>
+        
+    <div id="details">
+        <div class="textformatting" style="color:red; font-size:14px;">
+            Spend more than &euro;1350 today and receive our fantastic 15% discount!
       </div>
     </div>
         

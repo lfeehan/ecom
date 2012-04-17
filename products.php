@@ -19,8 +19,17 @@ of that type-->
     if (isset($_GET['beginner']))
     {
    	  $beginner = $_GET['beginner'];
-   	 
-   	 #Add buy the package bit here echo ' buy the package ';
+
+          echo "<div class='product' style='height:120px'>";
+            echo '<div class="productsPagePackage">';
+                echo "<div id='packageText'>To take advantage of our fantastic 15% discount add the famous panther package to your cart</div>";
+            echo '</div>';
+            
+            echo "<form id='addPackageToCart' action='package_to_cart.php' method='post' >
+                    <input type='hidden' name='package' value='true'>
+                    <input type='image' src='images/buyPanther.png' onMouseDown='this.src=\"images/buyPantherRoll.png\"' onMouseUp='this.src=\"images/buyPanther.png\"' width='170' height='58' value='Click Here'>
+                  </form>";
+          echo "</div>";
 
    	 
    	  $all_rows=queryDB("SELECT * FROM products WHERE beginner=1");

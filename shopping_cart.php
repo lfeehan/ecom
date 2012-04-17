@@ -77,14 +77,14 @@
 					</div>
 					
 					<div id='item-total'>
-						<p>Price: {$price}<br/>                         
+						<p>Price: &euro;{$price}<br/>                         
 						<form name='upd' action='update_cart.php' method='post' >
 							<input type='hidden' name='update' value='true'>
 							<input type='hidden' name='thisid' value='{$id}'>
 							<p>Quantity: <input id='quant' type='text' name='" . $id."quant" . "' value='{$quantity}' ><br/><br/>
 							<input type='submit' value='Update'>
 						</form>
-						<p>Item Total: {$item_total}<br/>
+						<p>Item Total: &euro;{$item_total}<br/>
 					</div>
 				</div>
 				";
@@ -109,9 +109,16 @@
          
    if(isset($_SESSION['cart']))
    {
+       $discount_amount = $cart_total * 0.15;
+       if($cart_total >= 1350){
+           echo "
+            <div id='cart_discount'>
+                <p>You can click the \"Buy now!\" button to receive a 15% discount to the value of &euro;{$discount_amount}, today!</p>
+            </div> ";
+       }
    echo "     
     
-      <div id='item-total'><p>Cart Total: {$cart_total}<br/>
+      <div id='item-total'><p>Cart Total: &euro;{$cart_total}<br/>
           <form name='buy' action='form.php' method='post'>
               <input id='buybutton' type='submit' value='Buy Now!'>
           </form>

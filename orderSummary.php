@@ -108,17 +108,23 @@
 
         $change_quant = true;
         $max_stock[$loop_count] = $stock;
-        echo("<font color=red>" . $quantity . "<i> Check Stock </i></font>");
+        echo("<font color=red>{$quantity}<i> Check Stock </i></font>");
       }
       else
       {
         echo($quantity);
       }
-      #echo ( "</TD><TD>{$price}</TD></TR>" );
-      echo ( "</TD><TD>{$item_total}</TD></TR>" );
+      echo ( "</TD><TD>&euro;{$item_total}</TD></TR>" );
    }
-   #echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$item_total}</B></TD></TR>" );
-   echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$cart_total}</B></TD></TR>" );
+        echo ( "<TR><TD><font color='red'>Discount percentage</font></TD><TD></TD><TD><font color='red'>15%</font></TD></TR>" );
+        echo ( "<TR><TD>Total before discount</TD><TD></TD><TD>&euro;{$cart_total}</TD></TR>" );
+   if($cart_total >= 1350){
+       $cart_total = $cart_total * 0.85;
+       echo ( "<TR><TD><B>Total with discount!!!</B></TD><TD></TD><TD><B>&euro;{$cart_total}</B></TD></TR>" );
+   }else{
+       echo ( "<TR><TD>Total</TD><TD></TD><TD><B>{$cart_total}</B></TD></TR>" );
+   }
+   
 ?>
 
 </TABLE>

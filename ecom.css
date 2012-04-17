@@ -392,6 +392,14 @@ margin-top: 20px;
   margin-right:100px;
   width:200px;
 }
+
+.productsPagePackage 
+{
+  float:left;
+  margin-top:20px;
+  margin-left:20px;
+  width:600px;
+}
     
 #item-total
 {
@@ -466,4 +474,27 @@ table.padded-table td
   -moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+}
+
+#cart_discount{
+    color: red;
+    margin: 50px 0 0 40px;
+    float:left;    
+}
+
+#packageText{
+    margin-top: 14px;
+}
+
+#addPackageToCart{
+    float:right;
+    margin:30px 40px 0 0;
+}
+
+#discount{
+    
+}
+
+#discountText{
+    text-decoration-color: red;
 }

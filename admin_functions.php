@@ -60,7 +60,7 @@
 					echo '</td>';
 					
 					echo '<td>';
-						echo "€" . $price;
+						echo "&euro;" . $price;
 					echo '</td>';
 					
 					echo '<td>';
