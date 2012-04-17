@@ -14,14 +14,14 @@
 ?>
 
 <?php include 'header.php';?>
-
-<body>
 <div id="main-content" style="height:600px;">
+<body>
+
 
 <?php include 'breadcrumb.php';?>
 
 <div id="productText" style="width:60%;">
-  <div class="orderSummary" >
+  <div class="orderSummary" style="height:480px;">
 		
     <table class="padded-table">
 		  <form name="customer" action="orderSummary.php"  method="post" onsubmit="return validateForm()" >

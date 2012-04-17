@@ -132,7 +132,7 @@
 
 
 </div>
-<div class="orderSummary">
+<div class="orderSummary" style="height:100%; ">
   <TABLE class="padded-table" border=0 cellpadding=0 align=LEFT>
   <TR><TD align=left colspan=2><B>Customer Details</B></TD></TR>
   <?php
