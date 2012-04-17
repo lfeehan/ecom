@@ -5,6 +5,11 @@ body
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
+img
+{
+	border-style: none;
+}
+
 p 
 {
   font-size:14px;
