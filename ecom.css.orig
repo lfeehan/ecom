@@ -1,16 +1,28 @@
 body 
 {
+	background-color: white;
 	background: #45485e url('images/body-bg.png') repeat-x fixed;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
+img
+{
+	border-style: none;
+}
+
+p 
+{
+  font-size:14px;
+}
+
 #container 
 {
-  background-color: #E3F6F0;
-  max-width: 1200px;
+  background-color: #white;
+  max-width: 1100px;
   width:100%;
   height:100%;	
-  overflow:hidden;		
+  overflow:visible;
+
 	margin: 45px auto;
 	border: 3px solid #a29f9b;
 	-moz-border-radius: 5px;
@@ -21,7 +33,7 @@ body
 	box-shadow: 0 0 10px #1b1c25;
 }
         
-#container-img
+#cart_img
 {
   max-height: 100px;
   margin: 10px;
@@ -32,13 +44,14 @@ body
 #main-content
 {
 	margin: 0px auto;
-/*	background: #45485e url('images/content_bg.png') no-repeat;*/
-	background-color:white;
+	background: #45485e url('images/content_bg.jpg');
+	background-repeat: repeat-x;
+	background-color: #fff;
 	max-width: 1200px;
 	width:100%;
-	height:100%;	
+	height:95%;	
 	font-family:Verdana, Geneva, sans-serif;
-	font-size:12px;
+	font-size:14px;
 	overflow:hidden;
 }
 	
@@ -124,23 +137,48 @@ body
 	width:100%;
 	margin:auto;
 	margin-bottom:0px;
-	
+}
+#title  a:link, #title a:visited, #title a:hover, #title a:active
+{
+  float:left;
+	font-size:80px;
+	padding:35px 0px 0px 10px;
+	font-family: 'Russo One', sans-serif;
+	text-decoration:none;
+	color:black;
 }
 
-#breadcrumb 
+.breadcrumb 
 {
-	height:15px;
-	font-size:12px;
-	float:left;
-	width:100%;
-	margin: 0px;
-	padding:10px;
-	background-color:transparent;
+	
+	font: 14px Arial, Helvetica, sans-serif;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin:0px;
+	height:30px;
+	line-height:30px;
+	color:#9b9b9b;
+	border:solid 1px #A29F9B;
+	overflow:hidden;
+	float:left;	
+
+	background: #eeeeee;
+	background: -moz-linear-gradient(top, #eeeeee 0%, #aaa 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc));
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	background: linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
 }
 
 #fullpackage 
-{
-	margin-left:120px;
+{	
+	margin-top:20px;
+	margin-left:80px;
+	margin-right: 80px;
+	margin-bottom:30px;
+
 	width:628px;
 	height:520px;
 	float:left;
@@ -148,63 +186,110 @@ body
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+
+	overflow: hidden;
+
+	-moz-box-shadow: 5px 5px 15px #1b1c25;
+	-webkit-box-shadow: 5px 5px 15px #1b1c25;
+	box-shadow: 5px 5px 15px #1b1c25;
 }	
 	
 #newproducts 
-{
-	margin-left: 60px;
-	margin-right:65px;
+{	
+margin-top: 20px;
 	height:520px;
 	width:220px;
-	background-color: lightblue;
-	float:right;	
-	border: thin solid;
+	
+	background-image: url(images/newProductsBackground.jpg);
+	float:left;	
+		
+	border: 1px solid #000;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+
+	-moz-box-shadow: 5px 5px 15px #1b1c25;
+	-webkit-box-shadow: 5px 5px 15px #1b1c25;
+	box-shadow: 5px 5px 15px #1b1c25;
 }
 
 #categories 
 {
   height:160px;
   width:100%;
-  background-color:white;
+  background-color: transparent;
   float:left;
   margin-top:10px;
+  margin-bottom: 15px;
 }
 #kites 
 {
-	height:160px;
-	width:160px;
-	margin-left:120px;
-	margin-bottom: 10px;
+	#height:160px;
+	#width:160px;
+	margin-left:78px;
+	margin-bottom: 30px;
 	float:left;
+
+	border: 1px solid #000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+	overflow: hidden;
+
+	-moz-box-shadow: 5px 5px 15px #1b1c25;
+	-webkit-box-shadow: 5px 5px 15px #1b1c25;
+	box-shadow: 5px 5px 15px #1b1c25;
 }
+
 #boards 
 {
-	height:160px;
-	width:160px;
-	margin-left:55px;
-	margin-bottom: 10px;
+	#height:160px;
+	#width:160px;
+	margin-left:30px;
+	margin-bottom: 30px;
 	float:left;
+
+	border: 1px solid #000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+	overflow: hidden;
+
+	-moz-box-shadow: 5px 5px 15px #1b1c25;
+	-webkit-box-shadow: 5px 5px 15px #1b1c25;
+	box-shadow: 5px 5px 15px #1b1c25;
 }
 #accessories 
 {
-	height:160px;
-	width:160px;
-	margin-left:55px;
-	margin-bottom:10px;
+	#height:160px;
+	#width:160px;
+	margin-left:35px;
+	margin-bottom:30px;
 	float:left;
+
+	border: 1px solid #000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+	overflow: hidden;
+
+	-moz-box-shadow: 5px 5px 15px #1b1c25;
+	-webkit-box-shadow: 5px 5px 15px #1b1c25;
+	box-shadow: 5px 5px 15px #1b1c25;
 }
 #footer 
 {
-	height: 60px;
-	width: 665px;
-	background-color:white;
+	width:100%;
+	height:5%;
+	background-color: white;
 	float: left;
-	margin-left:275px;
+	margin: 0 auto;
 	margin-top:10px;
 	margin-bottom:10px;
+
 }
 
 .image 
@@ -215,12 +300,19 @@ body
     
 #productText 
 {
-	height:700px;
+	height:80%;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> cfa51b3aed48109517afbf2700def49d7fc22fcc
 	width:900px;
+	overflow:hidden;
+
 	background-color:white;
 	margin:auto;
 	margin-top: 40px;
 	padding:20px; 
+
 	border: 3px solid #a29f9b;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -243,7 +335,7 @@ body
 	height:50px;
 	width:90%;
 	margin:auto;
-	padding-left:50px;
+	padding-left:5px;
 }
 		
 #productImage 
@@ -257,15 +349,25 @@ body
 {
   height:210px;
   width:100%;
-  border-top-style:solid;
-  background-color:white;
+  font-size:20px;
+
+
+	background: #fff;
+	background: -moz-linear-gradient(top, #fff 0%, #eee 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc));
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	background: linear-gradient(top, #eeeeee 0%,#cccccc 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+
   float:left;
 }
     
 .prodthumb 
 {
-  float:right;
-  margin-right:20px;
+  float:left;
+  margin-right:0px;
 }
     
 .productsPageProductName 
@@ -281,15 +383,15 @@ body
 {
   float:left;
   margin-top:75px;
-  margin-right:100px;
-  width:100px;
+  margin-right:70px;
+  width:150px;
 }   
 
 .productsPageProductPrice 
 {
   float:left;
   margin-top:75px;
-  margin-right:100px;
+  margin-right:20px;
   width:100px;
 }  
 .productsPageProductDetails 
@@ -299,8 +401,16 @@ body
   margin-right:100px;
   width:200px;
 }
+
+.productsPagePackage 
+{
+  float:left;
+  margin-top:20px;
+  margin-left:20px;
+  width:600px;
+}
     
-    #item-total
+#item-total
 {
 	float: right;
 	height: 100%;
@@ -314,7 +424,11 @@ body
   float: left;
   height: 100%;
 }
+.cart_item{
+	float:left;
+width: 100%;
 
+}
 
     
 .orderSummary
@@ -330,9 +444,9 @@ table.padded-table td
 	padding-top:5px; 
 	padding-right:50px; 
 	padding-bottom:5px; 
-	padding-left:50px;
-	}
+	padding-left:50px; 
 
+}
 
 #quant
 {
@@ -345,21 +459,58 @@ table.padded-table td
   text-align: center;
 }
         
-<<<<<<< HEAD
 #buybutton
 {
   width: 120px;
   padding: 10px;
 }
 
-=======
-        #buybutton{
-            width: 120px;
-            padding: 10px;
-        }
-        
-        #change-quant{
-            float: right;
-            width: 400px;
-        }
->>>>>>> ce289c8639b554fc417490798e8521f2a86001f2
+#change-quant
+{
+  float: right;
+  width: 400px;
+}
+
+#cartHeader
+{
+	text-align: center;
+  float: right; 
+  padding: 5px;
+  margin:5px 5px 5px 5px; 
+  padding-right:15px; 
+  padding-left:15px; 
+  background:white; 
+  border:thin solid;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#cart_discount{
+    color: red;
+    margin: 50px 0 0 40px;
+    float:left;    
+}
+
+#packageText{
+    margin-top: 14px;
+}
+
+#addPackageToCart{
+    float:right;
+    margin:30px 40px 0 0;
+}
+
+.invoice
+{
+	width:600px;
+	float:left;
+	background: #eee;
+	padding:25px;
+	margin:25px;
+
+	border:thin solid;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}

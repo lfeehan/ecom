@@ -49,7 +49,7 @@ p
 	background-color: #fff;
 	max-width: 1200px;
 	width:100%;
-	height:100%;	
+	height:95%;	
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:14px;
 	overflow:hidden;
@@ -283,7 +283,7 @@ margin-top: 20px;
 #footer 
 {
 	width:100%;
-
+	height:5%;
 	background-color: white;
 	float: left;
 	margin: 0 auto;
@@ -300,7 +300,7 @@ margin-top: 20px;
     
 #productText 
 {
-	height:80%;
+	height:80%;	
 	width:900px;
 	overflow:hidden;
 
@@ -431,6 +431,7 @@ width: 100%;
 {
 	float:left;
 	width: 800px;
+	height:480px;
 	padding-left: 100px;
 }
 
