@@ -15,7 +15,7 @@
 <?php include 'header.php';?>
 
 <body>
-<div id="main-content" style="height:600px;"> 
+<div id="main-content" > 
 <?php include 'breadcrumb.php';?>
 
 
