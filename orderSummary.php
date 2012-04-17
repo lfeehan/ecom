@@ -116,9 +116,10 @@
       }
       echo ( "</TD><TD>&euro;{$item_total}</TD></TR>" );
    }
-        echo ( "<TR><TD><font color='red'>Discount percentage</font></TD><TD></TD><TD><font color='red'>15%</font></TD></TR>" );
-        echo ( "<TR><TD>Total before discount</TD><TD></TD><TD>&euro;{$cart_total}</TD></TR>" );
+        
    if($cart_total >= 1350){
+   	   echo ( "<TR><TD><font color='red'>Discount percentage</font></TD><TD></TD><TD><font color='red'>15%</font></TD></TR>" );
+        echo ( "<TR><TD>Total before discount</TD><TD></TD><TD>&euro;{$cart_total}</TD></TR>" );
        $cart_total = $cart_total * 0.85;
        echo ( "<TR><TD><B>Total with discount!!!</B></TD><TD></TD><TD><B>&euro;{$cart_total}</B></TD></TR>" );
    }else{
