@@ -8,10 +8,12 @@
 	$db_handle = mysql_connect($server, $user_name, $password);
 	$db_found = mysql_select_db($database, $db_handle);
 	
-	if(!$db_found){
+	if(!$db_found)
+	{
 		die('</br><b>Could not connect: ' . mysql_error() . "</i></br>");
 	}
-	if (!mysql_select_db($database)){
+	if (!mysql_select_db($database))
+	{
 		die('</br><b>Cant select database: ' . mysql_error() . "</i></br>");	
 	}
 	
@@ -21,9 +23,11 @@
 	#--can add data validation here later--
 	
 	#perform any query on DB: queryDB("select blah from blah blah")
-	function queryDB($query){
+	function queryDB($query)
+	{
 		$result = mysql_query($query);
-		if(!$result){
+		if(!$result)
+		{
 			#give semi-useful html formatted error output
 			die("</br><b>query failed:</b><i> " . mysql_error() . "</i></br>");	
 		}
@@ -32,7 +36,8 @@
 
 	#this gets the relevant image for the passed product_id
 	#only returns one/first image at the moment.
-	function getImage($product_id){
+	function getImage($product_id)
+	{
 		$query = "SELECT IMAGE_ID FROM product_image WHERE PROD_ID = \"" . $product_id . "\"";
 		$result = mysql_query($query);
 		$image_field = mysql_fetch_assoc($result);
@@ -40,7 +45,8 @@
 		return $image_loc;
 	}
 	
-	function resizeImage($image_source, $w, $h){
+	function resizeImage($image_source, $w, $h)
+	{
 		
 		
 		$dstFile = 'images/thumbnails/tn_' . basename($image_source);
@@ -51,109 +57,125 @@
 	#query to insert into cart table
 	#if cart_id exists insert prod_id OR if prod_id also exist increment its quantity
 	#OR else insert new entry.
-	function insertCart($cart_id, $prod_id, $quantity){
+	function insertCart($cart_id, $prod_id, $quantity)
+	{
 		$query = queryDB("select * from cart where cart_id = " . $cart_id);
 		$fetch = mysql_fetch_assoc($query);
 		$existing_cart = $fetch['cart_id'];
 		
 		$found = false;
 		
-		if(isSet($cart_id)){
-			while($fetch = mysql_fetch_assoc($query)){
+		if(isSet($cart_id))
+		{
+			while($fetch = mysql_fetch_assoc($query))
+			{
 				$existing_prod = $fetch['prod_id'];
-				if ($prod_id == $existing_prod){
+				if ($prod_id == $existing_prod)
+				{
 					queryDB("UPDATE cart SET quantity = quantity+1 WHERE (cart_id = " . $cart_id . " AND prod_id = " . $prod_id . ");");
 					$found = true;
 				}
 			}
-			if(!$found){
+			if(!$found)
+			{
 				#cart exists but product entry does not
 				queryDB("INSERT INTO cart VALUES (" . $cart_id . "," . $prod_id . "," . $quantity . ")");
 			}
 		}
 	}
 	
-       function addToCart($prod_id){
-            if(empty($_SESSION['cart'])){
-                $query = "SELECT MAX( cart_id ) AS cart_id FROM cart";
-                $result = queryDB($query);
-                $last_cart_id = mysql_fetch_assoc($result);
-                $_SESSION['cart'] = $last_cart_id['cart_id'] + 1;
+  function addToCart($prod_id)
+  {
+    if(empty($_SESSION['cart']))
+    {
+        $query = "SELECT MAX( cart_id ) AS cart_id FROM cart";
+        $result = queryDB($query);
+        $last_cart_id = mysql_fetch_assoc($result);
+        $_SESSION['cart'] = $last_cart_id['cart_id'] + 1;
 
 
-                $add_query = "INSERT INTO cart(cart_id, prod_id, quantity )
-                VALUES({$_SESSION['cart']}, {$prod_id}, 1)";
-                $result = queryDB($add_query);
-            }
-            else{
-                            
-                $cart_query = "SELECT quantity FROM `cart` WHERE cart_id = {$_SESSION['cart']} AND prod_id = {$prod_id}";
-                $cart_prods = queryDB($cart_query);
-                $whatever = mysql_fetch_assoc($cart_prods);
-                $quantity = $whatever['quantity'];
+        $add_query = "INSERT INTO cart(cart_id, prod_id, quantity )
+        VALUES({$_SESSION['cart']}, {$prod_id}, 1)";
+        $result = queryDB($add_query);
+    }
+    else
+    {             
+      $cart_query = "SELECT quantity FROM `cart` WHERE cart_id = {$_SESSION['cart']} AND prod_id = {$prod_id}";
+      $cart_prods = queryDB($cart_query);
+      $whatever = mysql_fetch_assoc($cart_prods);
+      $quantity = $whatever['quantity'];
                 
-                if($quantity!=NULL){
-                        $quantity += 1;
-                        $update_query = "UPDATE cart
-                        SET quantity = {$quantity}
-                        WHERE cart_id = {$_SESSION['cart']}  AND prod_id = {$prod_id}";
-                        $result = queryDB($update_query);
-                }else{
-                     $add_query = "INSERT INTO cart(cart_id, prod_id, quantity )
-                    VALUES({$_SESSION['cart']}, {$prod_id}, 1)";
-                    $result = queryDB($add_query);
-                }
+      if($quantity!=NULL)
+      {
+        $quantity += 1;
+        $update_query = "UPDATE cart
+        SET quantity = {$quantity}
+        WHERE cart_id = {$_SESSION['cart']}  AND prod_id = {$prod_id}";
+        $result = queryDB($update_query);
+      }
+      else
+      {
+        $add_query = "INSERT INTO cart(cart_id, prod_id, quantity )
+        VALUES({$_SESSION['cart']}, {$prod_id}, 1)";
+        $result = queryDB($add_query);
+      }
                 
-               /* while($var = $prods['prod_id']){
-                    if($var = $prod_id){
-                        
-                            $query = "SELECT quantity FROM cart 
-                                    WHERE cart_id = {$_SESSION['cart']} AND prod_id = {$prod_id}";
-                            $result = queryDB($query);
-                            $quantity = $result['quantity'];
-                            $quantity += 1;
-                            $update_query = "UPDATE cart
-                            SET quantity = {$quantity}
-                            WHERE cart_id = {$_SESSION['cart']}  AND prod_id = {$prod_id}";
-                            $result = queryDB($update_query);
-                    }
-                }*/
-                
-              /*  $query = "SELECT quantity FROM cart 
+       /* while($var = $prods['prod_id'])
+       {
+          if($var = $prod_id)
+          {
+              
+            $query = "SELECT quantity FROM cart 
                     WHERE cart_id = {$_SESSION['cart']} AND prod_id = {$prod_id}";
-                $result = queryDB($query);
-                $quantity = $result['quantity'];
-                $quantity += 1;
-                $update_query = "UPDATE cart
-                    SET quantity = {$quantity}
-                    WHERE cart_id = {$_SESSION['cart']}  AND prod_id = {$prod_id}";
-                $result = queryDB($update_query);*/
-            }
-    
-        }
-        // this function returns "Cart is Empty" if the session variable is an empty value,
-        // empty string, 0, NULL or false.
-        // otherwise it sums the quantity values in the cart table where cart_id = {$_SESSION['cart']} 
-        function cartTotal(){
-            if(empty($_SESSION['cart'])){
-                return "<p>Cart is empty</p>";                
-            } else{
-                $query = "SELECT SUM(quantity) as tot FROM `cart` WHERE cart_id = {$_SESSION['cart']}";
-                // $query = "SELECT SUM(quantity) as tot FROM `cart` WHERE cart_id = 1001";
-                $result = queryDB($query);
-                $quantity_field = mysql_fetch_assoc($result);
-                $count = $quantity_field['tot'];
-                return "<p>Items in your cart: {$count}</p>";
-            }
-        }	
+            $result = queryDB($query);
+            $quantity = $result['quantity'];
+            $quantity += 1;
+            $update_query = "UPDATE cart
+            SET quantity = {$quantity}
+            WHERE cart_id = {$_SESSION['cart']}  AND prod_id = {$prod_id}";
+            $result = queryDB($update_query);
+          }
+        }*/
+        
+      /*  $query = "SELECT quantity FROM cart 
+            WHERE cart_id = {$_SESSION['cart']} AND prod_id = {$prod_id}";
+        $result = queryDB($query);
+        $quantity = $result['quantity'];
+        $quantity += 1;
+        $update_query = "UPDATE cart
+            SET quantity = {$quantity}
+            WHERE cart_id = {$_SESSION['cart']}  AND prod_id = {$prod_id}";
+        $result = queryDB($update_query);*/
+    }
+
+  }
+// this function returns "Cart is Empty" if the session variable is an empty value,
+// empty string, 0, NULL or false.
+// otherwise it sums the quantity values in the cart table where cart_id = {$_SESSION['cart']} 
+  function cartTotal()
+  {
+      if(empty($_SESSION['cart']))
+      {
+          return "<p>Cart is empty</p>";                
+      } else
+      {
+          $query = "SELECT SUM(quantity) as tot FROM `cart` WHERE cart_id = {$_SESSION['cart']}";
+          // $query = "SELECT SUM(quantity) as tot FROM `cart` WHERE cart_id = 1001";
+          $result = queryDB($query);
+          $quantity_field = mysql_fetch_assoc($result);
+          $count = $quantity_field['tot'];
+          return "<p>Items in your cart: {$count}</p>";
+      }
+  }	
 	
         #this function updates the db with the value entered in the quantity textbox in shopping_cart
         
-        function updateCartQuant($quantity, $prod_id){
-            $update_query = "UPDATE cart SET quantity = {$quantity} 
-            WHERE cart_id = '{$_SESSION['cart']}' AND prod_id = '{$prod_id}' ";
-            $result3 = mysql_query($update_query);
-            return $quantity;
-        }
+  function updateCartQuant($quantity, $prod_id)
+  {
+      $update_query = "UPDATE cart SET quantity = {$quantity} 
+      WHERE cart_id = '{$_SESSION['cart']}' AND prod_id = '{$prod_id}' ";
+      $result3 = mysql_query($update_query);
+      return $quantity;
+  }
 	
 ?>

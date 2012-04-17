@@ -9,73 +9,85 @@ of that type-->
 <?php include 'header.php';?>
 
 <body>
- <div id="main-content">  	
+   <div id="main-content">  	
 
-  
- <?php
- include 'breadcrumb.php';
- echo "<div id='productText'>";
- 
- if (isset($_GET['beginner'])){
- 	 $beginner = $_GET['beginner'];
- 	 $all_rows=queryDB("SELECT * FROM products WHERE beginner=1");
-}else if (isset($_GET['prod_type'])){	
-		$prod_type = $_GET['prod_type'];
-		if (isset($prod_type))
-		{
-		  $all_rows=queryDB("SELECT * FROM products WHERE type='$prod_type'");
-		}
- }
-		while($one_row=mysql_fetch_assoc($all_rows)) {
-		$id= $one_row['prod_id'];
-		$name= $one_row['name'];
-		$name_long=$one_row['name_long'];
-		$price= $one_row['price'];
-		$quantity= $one_row['quantity'];
-		$details= $one_row['details'];
-		$description=$one_row['description'];
-    	echo '<div class="product">';
-		#this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
+    
+   <?php
+   include 'breadcrumb.php';
+   echo "<div id='productText'>";
+   
+    if (isset($_GET['beginner']))
+    {
+   	  $beginner = $_GET['beginner'];
+   	 
+   	 #Add buy the package bit here echo ' buy the package ';
+
+   	 
+   	  $all_rows=queryDB("SELECT * FROM products WHERE beginner=1");
+    }
+    else if (isset($_GET['prod_type']))
+    {	
+		  $prod_type = $_GET['prod_type'];
+		  if (isset($prod_type))
+		  {
+		    $all_rows=queryDB("SELECT * FROM products WHERE type='$prod_type'");
+		  }
+	  }
+		  while($one_row=mysql_fetch_assoc($all_rows)) 
+		  {
+		    $id= $one_row['prod_id'];
+		    $name= $one_row['name'];
+		    $name_long=$one_row['name_long'];
+		    $price= $one_row['price'];
+		    $quantity= $one_row['quantity'];
+		    $details= $one_row['details'];
+		    $description=$one_row['description'];
+      	echo '<div class="product">';
+		    #this line generates a dynamic link based on product id, only one page "dynamic_product.php" handles all products
 		
-		#echos Name of product as a link	
-		echo '<div class="productsPageProductName">';
-		echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
-		echo '</div>';
-      
+		    #echos Name of product as a link	
+		    echo '<div class="productsPageProductName">';
+		    echo "<a href = \"dynamic_product.php?product=" . $id . "\">" .  $name . "</a>";
+		    echo '</div>';
+        
         #Echos stock status
         echo '<div class="productsPageStockStatus">';
-        if ($quantity ==0) {
-        echo "Out of Stock";
+        if ($quantity ==0) 
+        {
+          echo "Out of Stock";
         }
-        else echo "{$quantity} In Stock";
+        else 
+        {
+         echo "{$quantity} In Stock";
+        }
         echo '</div>';
-         
+           
         #Echos product price
         echo '<div class="productsPageProductPrice">';
         echo '&euro;'.$price;
         echo '</div>';   
-        
+          
         #Echos product details 
-        # Need to clean up product details in DB and decide about this
-#        echo '<div class="productsPageProductDetails">';
-#        echo $details;
-#        echo '</div>'; 
-                    
-#get image path for this particular product id
- 		$image_loc = getImage($id);
- 		$image_resized = resizeImage($image_loc, 250,250);
- 		#output the image in a div class prodthumb
-	    echo '<div class="prodthumb">';
-	    echo "<img src =\"" . $image_resized . "\">";
-	    echo "</div>";
-	    echo "</div>";
-        }
- 
-    ?> 
+        #Need to clean up product details in DB and decide about this
+        #echo '<div class="productsPageProductDetails">';
+        #echo $details;
+        #echo '</div>'; 
+                      
+        #get image path for this particular product id
+     		$image_loc = getImage($id);
+     		$image_resized = resizeImage($image_loc, 250,250);
+     		#output the image in a div class prodthumb
+        echo '<div class="prodthumb">';
+        echo "<img src =\"" . $image_resized . "\">";
+        echo "</div>";
+        echo "</div>";
+      }
+   
+      ?> 
 	
 	
 	
-</div>
+  </div>
 		
 </body>
 

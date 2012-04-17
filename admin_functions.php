@@ -2,7 +2,8 @@
 <?php include 'header.php';?>
 
 <?php
-		function viewProductDetails(){
+		function viewProductDetails()
+		{
 		
 			$all_rows = queryDB("select * from products");
 		
@@ -21,7 +22,8 @@
 				</tr>
 			';
 						
-			while ($one_row = mysql_fetch_assoc($all_rows)) {
+			while ($one_row = mysql_fetch_assoc($all_rows)) 
+			{
 				
 				$prod_id = $one_row['prod_id'];
 				$name = $one_row['name'];
@@ -85,7 +87,8 @@
 		}
 		
 		
-		function viewAllImages(){
+		function viewAllImages()
+		{
 			$all_rows = queryDB("select * from product_image");
 		
 			echo '<table border =2>
@@ -97,7 +100,8 @@
 				</tr>
 			';
 						
-			while ($one_row = mysql_fetch_assoc($all_rows)) {
+			while ($one_row = mysql_fetch_assoc($all_rows)) 
+			{
 				
 				$prod_id = $one_row['prod_id'];
 				$image_id = $one_row['image_id'];
@@ -123,7 +127,8 @@
 			echo '</table>';			
 		}
 		
-		function viewOrders(){
+		function viewOrders()
+		{
 			$all_rows = queryDB("select * from orders");
 		
 			echo '<table border =2>
@@ -136,7 +141,8 @@
 				</tr>
 			';
 			
-			while ($one_row = mysql_fetch_assoc($all_rows)) {
+			while ($one_row = mysql_fetch_assoc($all_rows)) 
+			{
 				$order_id = $one_row['order_id'];
 				$customer_id = $one_row['customer_id'];
 				$order_date = $one_row['order_date'];
@@ -166,7 +172,8 @@
 				echo "<td align = right colspan = \"4\">";
 				$cart = queryDB("select * from cart where cart_id=" . $cart_id);
 				
-				while ($cart_row = mysql_fetch_assoc($cart)) {
+				while ($cart_row = mysql_fetch_assoc($cart)) 
+				{
 					$prod_id = $cart_row['prod_id']; 
 					$qty = $cart_row['quantity'];
 					$name = mysql_fetch_assoc(queryDB("select name from products where prod_id =" .$prod_id));
@@ -223,13 +230,16 @@
 	
 	<div>
 		<?php
-		if (isset($_POST['products'])){
+		if (isset($_POST['products']))
+		{
 			viewProductDetails();
 		}
-		if (isset($_POST['images'])){
+		if (isset($_POST['images']))
+		{
 			viewAllImages();
 		}
-		if (isset($_POST['orders'])){
+		if (isset($_POST['orders']))
+		{
 			viewOrders();
 		}
 		
