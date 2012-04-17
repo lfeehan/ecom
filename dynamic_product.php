@@ -136,7 +136,7 @@
   </div>
 
  </div>	<!-- productText close div -->
-</div> <!-- container close div -->
+
 <?php include 'footer.php';?>
 <? mysql_close($db_handle); ?>
 </html>
